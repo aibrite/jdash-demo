@@ -3,7 +3,7 @@ var path = require('path');
 var del = require('del');
 var gulp = require('gulp');
 
-var deploydir = './gh-pages';
+var deploydir = 'build';
 
 gulp.task('deploy:clean', [], function (done) {
     del([
