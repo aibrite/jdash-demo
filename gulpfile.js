@@ -17,12 +17,12 @@ gulp.task('deploy:clean', [], function (done) {
 
 gulp.task('deploy:xcopy', ['deploy:clean'], function () {
     return merge([
-        gulp.src(['./bootstrap/**', './app.js', './css/**', './jdash/**', './material/**', './index.html'], {
+        gulp.src(['./CNAME', './bootstrap/**', './app.js', './css/**', './jdash/**', './material/**', './index.html'], {
             base: './'
         })
             .pipe(replace('node_modules', 'lib'))
             .pipe(gulp.dest(deploydir)),
-        gulp.src(['./node_modules/jdash-ui/**'])
+        gulp.src(['./node_modules/jdash-ui/**'], { base: './node_modules' })
             .pipe(gulp.dest(deploydir + '/lib'))
     ])
 
