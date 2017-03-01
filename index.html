@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>JDash Demo</title>
+
+    <link rel="stylesheet" href="node_modules/jdash-ui/dist/components/jdash.css">
+
+    
+
+
+
+
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+    <div class="">
+
+        <div class="j-container j-blue">
+            <h1 class="j-center">Select a demo</h1>
+        </div>
+
+        <div class="j-row-padding j-margin-top">
+
+            <div class="j-third">
+                <div id="jdashdemo" onclick="selectDemo('jdashdemo')" class="j-card-2 demo-container">
+                    <img src="css/jdash.jpg" style="width:100%">
+                    <div class="j-container">
+                        <h4>Jdash</h4>
+                    </div>
+                    <div class="j-container">
+                        <p>Lorem ipsum...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="j-third">
+                <div id="bsdemo" onclick="selectDemo('bsdemo')" class="j-card-2 demo-container">
+                    <img src="css/jdash.jpg" style="width:100%">
+                    <div class="j-container">
+                        <h4>Bootstrap</h4>
+                    </div>
+                    <div class="j-container">
+                        <p>Lorem ipsum...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="j-third">
+                <div id="mtdemo" onclick="selectDemo('mtdemo')" class="j-card-2 demo-container">
+                    <img src="css/jdash.jpg" style="width:100%">
+                    <div class="j-container">
+                        <h4>Material</h4>
+                    </div>
+                    <div class="j-container">
+                        <p>Lorem ipsum...</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="start-form" style="display: none" class="j-container j-animate-top">
+        <h2 class="j-text-blue">Great! Now personalize your demo with your e-mail</h2>
+
+        <div class="j-card-4">
+            <form class="j-panel j-light-gray" name="form1" onsubmit="startTrial(); return false;">
+                <p>
+                    <label>Your e-mail address</label></p>
+                <input class="j-input j-border j-round-large" type="email" id="email" required>
+
+                <div class="j-center j-padding">
+                    <button type="button" id="start-btn" class="j-btn j-green" onclick="startTrial()">Start Demo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+<script>
+                                                                                        var selected = 'jdashdemo';
+
+                                                                                        var demos = {
+                                                                                            jdashdemo: 'jdash',
+                                                                                            bsdemo: 'bootstrap',
+                                                                                            mtdemo: 'material'
+                                                                                        }
+
+                                                                                        function selectDemo(demo) {
+                                                                                            for (var k in demos) {
+                                                                                                document.querySelector('#' + k).classList.remove('j-blue');
+                                                                                                document.querySelector('#' + k).classList.remove('j-card-6');
+
+                                                                                            }
+                                                                                            document.querySelector('#' + demo).classList.add('j-blue');
+                                                                                            document.querySelector('#' + demo).classList.add('j-card-6');
+                                                                                            document.querySelector('#start-form').style.display = 'block';
+                                                                                            selected = demo;
+                                                                                            document.querySelector('#email').focus();
+
+                                                                                        }
+
+                                                                                        function startTrial() {
+                                                                                            var mail = document.querySelector('#email').value;
+                                                                                            window.location = demos[selected] + '/index.html?mail=' + encodeURIComponent(mail);
+                                                                                        }
+
+</script>
+
+</html>

@@ -1,0 +1,194 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="../node_modules/jdash-ui/dist/jdash.min.js"></script>
+    <link rel="import" href="../node_modules/jdash-ui/dist/components/jdash.html">
+
+    
+
+    <script src="index.js"></script>
+    <script src="../app.js"></script>
+    <link rel="stylesheet" href="./app.css">
+
+
+    <link rel="import" href="dashlets/rss-dashlet.html">
+    <link rel="import" href="dashlets/nasa-apod.html">
+    <link rel="import" href="dashlets/chart-dashlet.html">
+    <link rel="import" href="dashlets/content-dashlet.html">
+    <link rel="import" href="dashlets/rich-content.html">
+
+    <script>
+        jdash.ready(function () {
+            app.init();
+        })
+    </script>
+
+</head>
+
+
+
+
+
+<body class="j-light-grey j-animate-opacity" style="display: none">
+
+    <!-- Sidenav/menu -->
+    <nav class="j-sidenav j-white j-animate-left" style="z-index:3;width:300px;display:none" id="mySidenav"><br>
+        <div class="j-container">
+            <a href="#" onclick="app.closeSidenav()" class=" j-right j-xlarge j-padding" title="close menu">
+                <i class="fa fa-remove"></i>
+            </a>
+            <span class="j-jumbo" style="width:45%;height: 60px"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+            <br><br>
+            <h4 class="j-padding-0"><b>Your Dashboards</b></h4>
+        </div>
+        <div id="dashboard-list">
+
+            <button class="more-btn">More</button>
+        </div>
+
+        <template id="dashboard-list-item-template">
+            <a onclick="app.closeSidenav()" class="j-padding"><i class="fa fa-th-large fa-fw j-margin-right"></i></a>
+        </template>
+
+        <div class="j-section j-padding-top ">
+            <a href="#" class="j-hover-white j-hover-text-indigo j-show-inline-block"><i class="fa fa-facebook-official"></i></a>
+            <a href="#" class="j-hover-white j-hover-text-purple j-show-inline-block"><i class="fa fa-instagram"></i></a>
+            <a href="#" class="j-hover-white j-hover-text-yellow j-show-inline-block"><i class="fa fa-snapchat"></i></a>
+            <a href="#" class="j-hover-white j-hover-text-red j-show-inline-block"><i class="fa fa-pinterest-p"></i></a>
+            <a href="#" class="j-hover-white j-hover-text-light-blue j-show-inline-block"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="j-hover-white j-hover-text-indigo j-show-inline-block"><i class="fa fa-linkedin"></i></a>
+        </div>
+    </nav>
+
+    <!-- Overlay effect when opening sidenav on small screens -->
+    <div class="j-overlay j-animate-opacity" onclick="app.closeSidenav()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="j-main j-theme-dashboard">
+
+        <!-- Header -->
+        <header class="j-container">
+            <button class="j-btn j-margin-top j-blue j-right" id="create-dashboard-btn">New Dashboard</button>
+
+            <div class="j-margin-top j-right j-margin-right j-dropdown-hover">
+                <button class="j-btn j-white">Theme</button>
+                <div class="j-dropdown-content j-border" id="themes">
+
+                </div>
+            </div>
+            <div class="j-margin-right j-left j-margin-top">
+                <span class="j-opennav j-text-gray j-xxlarge j-hover-text-black" onclick="app.openSidenav()"><i class="fa fa-bars"></i></span>
+
+            </div>
+            <div class="">
+                <h1 class="j-truncate" id="dashboard-title"><b>JDash</b></h1>
+
+            </div>
+
+
+        </header>
+
+        <div>
+
+            <div class="j-section j-padding-4" style="display: none" id="dashboard-edit-tools">
+                <div class="j-margin-bottom">
+                    <div class="j-row-padding">
+                        <div class="j-half">
+                            <button class="j-btn j-white" btn-group="dashboard-view-mode" id="readonly">View</button>
+                            <button class="j-btn j-white" id="startedit">Edit</button>
+                            <button class="j-btn j-white" btn-group="dashboard-view-mode" id="dashletedit">Dashlets</button>
+                            <button class="j-btn j-white " btn-group="dashboard-view-mode" id="layoutedit">Design</button>
+                        </div>
+                        <div class="j-half j-right">
+                            <button class="j-btn j-right j-red" id="delete-dashboard-btn"><i class="fa fa-trash"></i> Delete</button>
+                            <button class="j-btn  j-right" id="toggledashlets">Toggle Dashlets</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="dashlet-list" class="j-animate-zoom dashlet-list">
+
+                </div>
+            </div>
+
+
+
+
+            <template id="dashlet-list-item-template">
+                <div class="j-theme j-center">
+                    <i j-drag-handle class="fa fa-arrows j-show-block j-margin j-xlarge j-right-align j-drag-handle"></i>
+                    <h4 class="j-truncate" dashlet-title-element></h4>
+                    <a dashlet-add-btn class="j-btn j-center">Add</a>
+                </div>
+            </template>
+
+
+
+            <j-dashboard id="mydashboard" j-view-mode="dashletedit" style="display: none" class="j-theme-dashboard">
+
+            </j-dashboard>
+
+
+            <j-provider id="localstorageprovider" type="localstorage" storage="session"></j-provider>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="j-container j-padding-32 j-border-top j-theme-dark">
+        <div class="j-row-padding">
+            <div class="j-third">
+                <h3>FOOTER</h3>
+                <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue
+                    gravida diam non fringilla.</p>
+                <p>Powered by <a href="http://www.jschools.com/jcss/default.asp" target="_blank">j.css</a></p>
+            </div>
+
+            <div class="j-third">
+                <h3>BLOG POSTS</h3>
+                <ul class="j-ul j-hoverable">
+                    <li class="j-padding-16">
+                        <img src="/jimages/workshop.jpg" class="j-left j-margin-right" style="width:50px">
+                        <span class="j-large">Lorem</span><br>
+                        <span>Sed mattis nunc</span>
+                    </li>
+                    <li class="j-padding-16">
+                        <img src="/jimages/gondol.jpg" class="j-left j-margin-right" style="width:50px">
+                        <span class="j-large">Ipsum</span><br>
+                        <span>Praes tinci sed</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="j-third">
+                <h3>POPULAR TAGS</h3>
+                <p>
+                    <span class="j-tag j-black j-margin-bottom">Travel</span> <span class="j-tag j-grey j-small j-margin-bottom">New York</span>                    <span class="j-tag j-grey j-small j-margin-bottom">London</span>
+                    <span class="j-tag j-grey j-small j-margin-bottom">IKEA</span> <span class="j-tag j-grey j-small j-margin-bottom">NORWAY</span>                    <span class="j-tag j-grey j-small j-margin-bottom">DIY</span>
+                    <span class="j-tag j-grey j-small j-margin-bottom">Ideas</span> <span class="j-tag j-grey j-small j-margin-bottom">Baby</span>                    <span class="j-tag j-grey j-small j-margin-bottom">Family</span>
+                    <span class="j-tag j-grey j-small j-margin-bottom">News</span> <span class="j-tag j-grey j-small j-margin-bottom">Clothing</span>                    <span class="j-tag j-grey j-small j-margin-bottom">Shopping</span>
+                    <span class="j-tag j-grey j-small j-margin-bottom">Sports</span> <span class="j-tag j-grey j-small j-margin-bottom">Games</span>
+                </p>
+            </div>
+
+        </div>
+        <div class="j-center j-padding-12">Powered by <a href="http://jdash.io" title="j.CSS" target="_blank" class="j-hover-opacity">jdash</a></div>
+
+    </footer>
+
+
+    <!-- End page content -->
+    </div>
+
+</body>
+
+
+
+
+
+
+</html>
