@@ -14,7 +14,7 @@ gulp.task('deploy:clean', [], function (done) {
 })
 
 gulp.task('deploy:xcopy', ['deploy:clean'], function () {
-    gulp.src(['./bootstrap/**', './css/**', './jdash/**', './material/**', './node_modules/jdash-ui/**', './index.html'], {
+    gulp.src(['./bootstrap/**', './app.js', './css/**', './jdash/**', './material/**', './node_modules/jdash-ui/**', './index.html'], {
         base: './'
     }).pipe(gulp.dest(deploydir));
 })
@@ -26,3 +26,7 @@ gulp.task('deploy:push', ['deploy:xcopy'], function (done) {
 gulp.task('deploy', ['deploy:clean', 'deploy:xcopy', 'deploy:push'], function () {
 
 })
+
+ghpages.publish(path.join(__dirname, deploydir), function (err) {
+    console.log(err);
+});
