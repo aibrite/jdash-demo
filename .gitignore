@@ -2,3 +2,4 @@ gh-pages
 build
 deploy
 .vscode
+node_modules

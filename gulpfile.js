@@ -2,6 +2,8 @@ var ghpages = require('gh-pages');
 var path = require('path');
 var del = require('del');
 var gulp = require('gulp');
+var replace = require('gulp-replace');
+var merge = require('gulp-merge');
 
 var deploydir = 'build';
 
@@ -14,9 +16,16 @@ gulp.task('deploy:clean', [], function (done) {
 })
 
 gulp.task('deploy:xcopy', ['deploy:clean'], function () {
-    gulp.src(['./bootstrap/**', './app.js', './css/**', './jdash/**', './material/**', './node_modules/jdash-ui/**', './index.html'], {
-        base: './'
-    }).pipe(gulp.dest(deploydir));
+    return merge([
+        gulp.src(['./bootstrap/**', './app.js', './css/**', './jdash/**', './material/**', './index.html'], {
+            base: './'
+        })
+            .pipe(replace('node_modules', 'lib'))
+            .pipe(gulp.dest(deploydir)),
+        gulp.src(['./node_modules/jdash-ui/**'])
+            .pipe(gulp.dest(deploydir + '/lib'))
+    ])
+
 })
 
 gulp.task('deploy:push', ['deploy:xcopy'], function (done) {
@@ -26,7 +35,3 @@ gulp.task('deploy:push', ['deploy:xcopy'], function (done) {
 gulp.task('deploy', ['deploy:clean', 'deploy:xcopy', 'deploy:push'], function () {
 
 })
-
-ghpages.publish(path.join(__dirname, deploydir), function (err) {
-    console.log(err);
-});

@@ -22,6 +22,8 @@
   "devDependencies": {
     "del": "^2.2.2",
     "gh-pages": "^0.12.0",
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-merge": "^0.1.1",
+    "gulp-replace": "^0.5.4"
   }
 }
