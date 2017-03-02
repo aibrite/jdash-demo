@@ -13,6 +13,8 @@
     var getDemoToken = function (email) {
         var url = 'https://app.jdash.io/api/v1';
 
+        // var url = 'https://app.jdash.io/api/v1';
+
         var instance = jdash.Http.default.create({
             baseURL: url
         });
@@ -66,13 +68,13 @@
         this.viewModeChangeHandler(this.dashboard.getAttribute('j-view-mode') || 'readonly');
         this.dashboard.layout.makeDroppable('[j-type="j-dashlet-module"]', true, this.dashletList);
 
-
+        var url = 'https://app.jdash.io/jdash/api/v1';
 
         window.jdash.Provider.init({
-            getUserToken: function (cb) {
+            userToken: function (cb) {
                 getDemoToken(self.query.mail).then(function (token) {
-                    cb(token);
-                });
+                    cb(null, token);
+                }).catch(function (err) { cb(err) });
             }
         })
         this.go();

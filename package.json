@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/aibrite/jdash-demo#readme",
   "dependencies": {
-    "jdash-ui": "git+ssh://git@bitbucket.org/kalitte/jdash-ui.git"
+    "jdash-ui": "git@github.com:aibrite/jdash-ui.git"
   },
   "devDependencies": {
     "del": "^2.2.2",
