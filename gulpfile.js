@@ -27,7 +27,7 @@ gulp.task('deploy:xcopy', ['deploy:clean'], function () {
     ])
 })
 
-gulp.task('deploy:push', [], function (done) {
+gulp.task('push', [], function (done) {
     ghpages.publish(path.join(__dirname, deploydir), done);
 })
 
