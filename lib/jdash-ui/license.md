@@ -1,0 +1,1 @@
+(c) 2017 aibrite inc. All rights reserved.

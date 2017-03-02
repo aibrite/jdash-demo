@@ -2,91 +2,73 @@
   "_args": [
     [
       {
-        "raw": "jdash-ui@git+ssh://git@bitbucket.org/kalitte/jdash-ui.git",
+        "raw": "jdash-ui@git+https://github.com/aibrite/jdash-ui.git",
         "scope": null,
         "escapedName": "jdash-ui",
         "name": "jdash-ui",
-        "rawSpec": "git+ssh://git@bitbucket.org/kalitte/jdash-ui.git",
-        "spec": "git+ssh://git@bitbucket.org/kalitte/jdash-ui.git",
+        "rawSpec": "git+https://github.com/aibrite/jdash-ui.git",
+        "spec": "git+https://github.com/aibrite/jdash-ui.git",
         "type": "hosted",
         "hosted": {
-          "type": "bitbucket",
-          "ssh": "git@bitbucket.org:kalitte/jdash-ui.git",
-          "sshUrl": "git+ssh://git@bitbucket.org/kalitte/jdash-ui.git",
-          "httpsUrl": "git+https://bitbucket.org/kalitte/jdash-ui.git",
-          "shortcut": "bitbucket:kalitte/jdash-ui",
-          "directUrl": "https://bitbucket.org/kalitte/jdash-ui/raw/master/package.json"
+          "type": "github",
+          "ssh": "git@github.com:aibrite/jdash-ui.git",
+          "sshUrl": "git+ssh://git@github.com/aibrite/jdash-ui.git",
+          "httpsUrl": "git+https://github.com/aibrite/jdash-ui.git",
+          "gitUrl": "git://github.com/aibrite/jdash-ui.git",
+          "shortcut": "github:aibrite/jdash-ui",
+          "directUrl": "https://raw.githubusercontent.com/aibrite/jdash-ui/master/package.json"
         }
       },
       "/Users/tansu/project/jdash/jdash-demo"
     ]
   ],
-  "_from": "git+ssh://git@bitbucket.org/kalitte/jdash-ui.git",
-  "_id": "jdash-ui@1.0.0",
+  "_from": "git+https://github.com/aibrite/jdash-ui.git",
+  "_id": "jdash-ui@0.0.1",
   "_inCache": true,
   "_location": "/jdash-ui",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "jdash-ui@git+ssh://git@bitbucket.org/kalitte/jdash-ui.git",
+    "raw": "jdash-ui@git+https://github.com/aibrite/jdash-ui.git",
     "scope": null,
     "escapedName": "jdash-ui",
     "name": "jdash-ui",
-    "rawSpec": "git+ssh://git@bitbucket.org/kalitte/jdash-ui.git",
-    "spec": "git+ssh://git@bitbucket.org/kalitte/jdash-ui.git",
+    "rawSpec": "git+https://github.com/aibrite/jdash-ui.git",
+    "spec": "git+https://github.com/aibrite/jdash-ui.git",
     "type": "hosted",
     "hosted": {
-      "type": "bitbucket",
-      "ssh": "git@bitbucket.org:kalitte/jdash-ui.git",
-      "sshUrl": "git+ssh://git@bitbucket.org/kalitte/jdash-ui.git",
-      "httpsUrl": "git+https://bitbucket.org/kalitte/jdash-ui.git",
-      "shortcut": "bitbucket:kalitte/jdash-ui",
-      "directUrl": "https://bitbucket.org/kalitte/jdash-ui/raw/master/package.json"
+      "type": "github",
+      "ssh": "git@github.com:aibrite/jdash-ui.git",
+      "sshUrl": "git+ssh://git@github.com/aibrite/jdash-ui.git",
+      "httpsUrl": "git+https://github.com/aibrite/jdash-ui.git",
+      "gitUrl": "git://github.com/aibrite/jdash-ui.git",
+      "shortcut": "github:aibrite/jdash-ui",
+      "directUrl": "https://raw.githubusercontent.com/aibrite/jdash-ui/master/package.json"
     }
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
-  "_resolved": "git+ssh://git@bitbucket.org/kalitte/jdash-ui.git#bba9c78ae7bcdada279a2f8033169468d2601dd4",
-  "_shasum": "34a358b4b02d4c118c90930fc77999a391231f90",
+  "_resolved": "git+https://github.com/aibrite/jdash-ui.git#a13371e93c43b4967e07c6ca6ef59f2efd74678c",
+  "_shasum": "577d5f37532e11eed2525e374b751a96522bd3d7",
   "_shrinkwrap": null,
-  "_spec": "jdash-ui@git+ssh://git@bitbucket.org/kalitte/jdash-ui.git",
+  "_spec": "jdash-ui@git+https://github.com/aibrite/jdash-ui.git",
   "_where": "/Users/tansu/project/jdash/jdash-demo",
   "author": {
     "name": "aibrite inc."
   },
   "dependencies": {},
   "description": "jdash client library",
-  "devDependencies": {
-    "browserify": "^13.1.1",
-    "del": "^2.2.2",
-    "gulp": "^3.9.1",
-    "gulp-clean-css": "^2.4.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-sass": "^3.0.0",
-    "gulp-sourcemaps": "^2.4.1",
-    "gulp-typescript": "^3.1.3",
-    "gulp-uglify": "^2.0.1",
-    "gulp-vulcanize": "^6.1.0",
-    "gulp-webserver": "^0.9.1",
-    "mocha": "^3.2.0",
-    "node-sass": "^4.1.1",
-    "pump": "^1.0.2",
-    "tsify": "^2.0.7",
-    "typescript": "^2.1.4",
-    "typings": "^2.0.0",
-    "vinyl-paths": "^2.1.0",
-    "vulcanize": "^1.15.2"
-  },
-  "gitHead": "bba9c78ae7bcdada279a2f8033169468d2601dd4",
-  "license": "ISC",
-  "main": "dist/index.js",
+  "devDependencies": {},
+  "gitHead": "a13371e93c43b4967e07c6ca6ef59f2efd74678c",
+  "license": "SEE LICENSE IN license.md",
+  "main": "dist/jdash.min.js",
   "name": "jdash-ui",
   "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
+  "readme": "# jdash client library\n",
+  "readmeFilename": "README.md",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "dist/definitions/index.d.ts",
-  "version": "1.0.0"
+  "version": "0.0.1"
 }
