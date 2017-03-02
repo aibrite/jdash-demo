@@ -17,7 +17,7 @@ gulp.task('deploy:clean', [], function (done) {
 
 gulp.task('deploy:xcopy', ['deploy:clean'], function () {
     return merge([
-        gulp.src(['./CNAME', './bootstrap/**', './app.js', './css/**', './jdash/**', './material/**', './index.html'], {
+        gulp.src(['./CNAME', './demos/**', './css/**', './index.html'], {
             base: './'
         })
             .pipe(replace('node_modules', 'lib'))
