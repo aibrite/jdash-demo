@@ -5,7 +5,7 @@ var gulp = require('gulp');
 var replace = require('gulp-replace');
 var merge = require('gulp-merge');
 
-var deploydir = 'build';
+var deploydir = 'deploy';
 
 gulp.task('deploy:clean', [], function (done) {
     del([
