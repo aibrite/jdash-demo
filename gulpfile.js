@@ -5,7 +5,7 @@ var gulp = require('gulp');
 var replace = require('gulp-replace');
 var merge = require('gulp-merge');
 
-var deploydir = 'deploy';
+var deploydir = './deploy';
 
 gulp.task('deploy:clean', [], function (done) {
     del([
@@ -25,13 +25,12 @@ gulp.task('deploy:xcopy', ['deploy:clean'], function () {
         gulp.src(['./node_modules/jdash-ui/**'], { base: './node_modules' })
             .pipe(gulp.dest(deploydir + '/lib'))
     ])
-
 })
 
-gulp.task('deploy:push', ['deploy:xcopy'], function (done) {
+gulp.task('deploy:push', [], function (done) {
     ghpages.publish(path.join(__dirname, deploydir), done);
 })
 
-gulp.task('deploy', ['deploy:clean', 'deploy:xcopy', 'deploy:push'], function () {
+gulp.task('deploy', ['deploy:clean', 'deploy:xcopy'], function () {
 
 })
