@@ -9,7 +9,7 @@
 
     <script>
         jdash.define(function () {
-            this.connected = function () {
+            this.initialized = function () {
                 var ctx = this.querySelector('canvas');
 
                 var myChart = this.chart = new Chart(ctx, {
@@ -45,7 +45,7 @@
                                 ticks: {
                                     beginAtZero: true
                                 }
-                            }]
+                            }] 
                         }
                     }
                 });
