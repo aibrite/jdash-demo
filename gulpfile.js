@@ -29,7 +29,7 @@ gulp.task('deploy:app', ['deploy:clean'], function () {
 })
 
 gulp.task('deploy:vendor', ['deploy:clean', 'deploy:install'], function () {
-    gulp.src(['./node_modules/jdash-ui/**'], { base: './node_modules' })
+    return gulp.src(['./node_modules/jdash-ui/**'], { base: './node_modules' })
         .pipe(gulp.dest(deploydir + '/lib'))
 })
 
