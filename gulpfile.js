@@ -32,7 +32,7 @@ gulp.task('deploy:xcopy', ['deploy:clean'], function () {
 })
 
 gulp.task('push', ['deploy'], function (done) {
-    ghpages.publish(path.join(__dirname, deploydir), done);
+    return ghpages.publish(path.join(__dirname, deploydir), done);
 })
 
 gulp.task('deploy', ['deploy:clean', 'deploy:install', 'deploy:xcopy'], function () {
