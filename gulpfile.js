@@ -19,16 +19,22 @@ gulp.task('deploy:clean', [], function (done) {
         }).then(() => done()).catch(err => done(err))
 })
 
-gulp.task('deploy:xcopy', ['deploy:clean', 'deploy:install'], function () {
-    return merge([
-        gulp.src(['./CNAME', './demos/**', './css/**', './index.html'], {
-            base: './'
-        })
-            .pipe(replace('node_modules', 'lib'))
-            .pipe(gulp.dest(deploydir)),
-        gulp.src(['./node_modules/jdash-ui/**'], { base: './node_modules' })
-            .pipe(gulp.dest(deploydir + '/lib'))
-    ])
+
+gulp.task('deploy:app', ['deploy:clean'], function () {
+    return gulp.src(['./CNAME', './demos/**', './css/**', './index.html'], {
+        base: './'
+    })
+        .pipe(replace('node_modules', 'lib'))
+        .pipe(gulp.dest(deploydir));
+})
+
+gulp.task('deploy:vendor', ['deploy:clean', 'deploy:install'], function () {
+    gulp.src(['./node_modules/jdash-ui/**'], { base: './node_modules' })
+        .pipe(gulp.dest(deploydir + '/lib'))
+})
+
+gulp.task('deploy:xcopy', ['deploy:app', 'deploy:vendor'], function () {
+
 })
 
 gulp.task('push', ['deploy'], function (done) {
