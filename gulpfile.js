@@ -19,7 +19,7 @@ gulp.task('deploy:clean', [], function (done) {
         }).then(() => done()).catch(err => done(err))
 })
 
-gulp.task('deploy:xcopy', ['deploy:clean'], function () {
+gulp.task('deploy:xcopy', ['deploy:clean', 'deploy:install'], function () {
     return merge([
         gulp.src(['./CNAME', './demos/**', './css/**', './index.html'], {
             base: './'
