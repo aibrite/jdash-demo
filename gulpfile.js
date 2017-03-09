@@ -4,12 +4,16 @@ var del = require('del');
 var gulp = require('gulp');
 var replace = require('gulp-replace');
 var merge = require('gulp-merge');
+const shell = require('gulp-shell')
 
 var deploydir = './deploy';
 
+gulp.task('deploy:install', [], shell.task('npm install jdash-ui --force'));
+
 gulp.task('deploy:clean', [], function (done) {
     del([
-        deploydir
+        deploydir,
+        'node_modules/jdash-ui'
     ], {
             force: true
         }).then(() => done()).catch(err => done(err))
@@ -27,10 +31,10 @@ gulp.task('deploy:xcopy', ['deploy:clean'], function () {
     ])
 })
 
-gulp.task('push', [], function (done) {
+gulp.task('push', ['deploy'], function (done) {
     ghpages.publish(path.join(__dirname, deploydir), done);
 })
 
-gulp.task('deploy', ['deploy:clean', 'deploy:xcopy'], function () {
+gulp.task('deploy', ['deploy:clean', 'deploy:install', 'deploy:xcopy'], function () {
 
 })
