@@ -19,12 +19,13 @@
           "directUrl": "https://raw.githubusercontent.com/aibrite/jdash-ui/master/package.json"
         }
       },
-      "/Users/tansu/project/jdash/jdash-demo"
+      "/Users/physioh/project/jdash/jdash-demo"
     ]
   ],
   "_from": "git+https://github.com/aibrite/jdash-ui.git",
   "_id": "jdash-ui@0.0.1",
   "_inCache": true,
+  "_installable": true,
   "_location": "/jdash-ui",
   "_phantomChildren": {},
   "_requested": {
@@ -50,10 +51,10 @@
     "/"
   ],
   "_resolved": "git+https://github.com/aibrite/jdash-ui.git#9b563358db63245230ae74cfe45caf8462a2b28f",
-  "_shasum": "d7578f36600b771c000c15c992c70e09003af05c",
+  "_shasum": "5be7c3b2e825033b173a84910d3c95ea6e8a309a",
   "_shrinkwrap": null,
   "_spec": "jdash-ui@git+https://github.com/aibrite/jdash-ui.git",
-  "_where": "/Users/tansu/project/jdash/jdash-demo",
+  "_where": "/Users/physioh/project/jdash/jdash-demo",
   "author": {
     "name": "aibrite inc."
   },
