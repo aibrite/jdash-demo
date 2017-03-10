@@ -19,46 +19,44 @@
 </head>
 
 <body>
-    <div class="">
+    <div class="j-margin-bottom">
 
         <div class="j-container j-blue">
-            <h1 class="j-center">Select a demo</h1>
+            <h1 class="j-center">Select a theme</h1>
         </div>
 
         <div class="j-row-padding j-margin-top">
 
             <div class="j-third">
-                <div id="jdashdemo" onclick="selectDemo('jdashdemo')" class="j-card-2 demo-container">
-                    <img src="css/jdash.jpg" style="width:100%">
+                <div id="jdashdemo" onclick="selectDemo('jdashdemo')" class="j-card-2 j-center demo-container">
+
                     <div class="j-container">
-                        <h4>Jdash</h4>
+                        <h2>Jdash Theme</h2>
                     </div>
                     <div class="j-container">
-                        <p>Lorem ipsum...</p>
+                        <p>Demo uses colors and styles from jdash.css</p>
                     </div>
                 </div>
             </div>
 
             <div class="j-third">
-                <div id="bsdemo" onclick="selectDemo('bsdemo')" class="j-card-2 demo-container">
-                    <img src="css/jdash.jpg" style="width:100%">
+                <div id="bsdemo" onclick="selectDemo('bsdemo')" class="j-card-2 j-center demo-container">
                     <div class="j-container">
-                        <h4>Bootstrap</h4>
+                        <h2>Bootstrap Theme</h2>
                     </div>
                     <div class="j-container">
-                        <p>Lorem ipsum...</p>
+                        <p>Demo uses colors and styles from official bootstrap.css</p>
                     </div>
                 </div>
             </div>
 
             <div class="j-third">
-                <div id="mtdemo" onclick="selectDemo('mtdemo')" class="j-card-2 demo-container">
-                    <img src="css/jdash.jpg" style="width:100%">
+                <div id="mtdemo" onclick="selectDemo('mtdemo')" class="j-card-2 j-center demo-container">
                     <div class="j-container">
-                        <h4>Material</h4>
+                        <h2>Material Theme</h2>
                     </div>
                     <div class="j-container">
-                        <p>Lorem ipsum...</p>
+                        <p>Demo uses colors and styles from official material.css</p>
                     </div>
                 </div>
             </div>
@@ -68,10 +66,14 @@
     </div>
 
     <div id="start-form" style="display: none" class="j-container j-animate-top">
-        <h2 class="j-text-blue">Great! Now personalize your demo with your e-mail</h2>
+
 
         <div class="j-card-4">
+
             <form class="j-panel j-light-gray" name="form1" onsubmit="startTrial(); return false;">
+
+                <h2 class="j-text-blue">Great! Now personalize your demo with your e-mail</h2>
+
                 <p>
                     <label>Your e-mail address</label></p>
                 <input class="j-input j-border j-round-large" type="email" id="email" required>
