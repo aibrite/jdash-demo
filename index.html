@@ -25,6 +25,26 @@
             <h1 class="j-center">Select a theme</h1>
         </div>
 
+        <div id="start-form" style="display: none" class="j-container j-animate-top">
+
+
+            <div class="j-card-4">
+
+                <form class="j-panel j-light-gray" name="form1" onsubmit="startTrial(); return false;">
+
+                    <h2 class="j-text-blue">Great! Now personalize your demo with your e-mail</h2>
+
+                    <p>
+                        <label>Your e-mail address</label></p>
+                    <input class="j-input j-border j-round-large" type="email" id="email" required>
+
+                    <div class="j-center j-padding">
+                        <button type="button" id="start-btn" class="j-btn j-green" onclick="startTrial()">Start Demo</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
         <div class="j-row-padding j-margin-top">
 
             <div class="j-third">
@@ -65,55 +85,37 @@
 
     </div>
 
-    <div id="start-form" style="display: none" class="j-container j-animate-top">
 
-
-        <div class="j-card-4">
-
-            <form class="j-panel j-light-gray" name="form1" onsubmit="startTrial(); return false;">
-
-                <h2 class="j-text-blue">Great! Now personalize your demo with your e-mail</h2>
-
-                <p>
-                    <label>Your e-mail address</label></p>
-                <input class="j-input j-border j-round-large" type="email" id="email" required>
-
-                <div class="j-center j-padding">
-                    <button type="button" id="start-btn" class="j-btn j-green" onclick="startTrial()">Start Demo</button>
-                </div>
-            </form>
-        </div>
-    </div>
 
 </body>
 
 <script>
-                                                                                        var selected = 'jdashdemo';
+                                          var selected = 'jdashdemo';
 
-                                                                                        var demos = {
-                                                                                            jdashdemo: 'jdash',
-                                                                                            bsdemo: 'bootstrap',
-                                                                                            mtdemo: 'material'
-                                                                                        }
+                                          var demos = {
+                                              jdashdemo: 'jdash',
+                                              bsdemo: 'bootstrap',
+                                              mtdemo: 'material'
+                                          }
 
-                                                                                        function selectDemo(demo) {
-                                                                                            for (var k in demos) {
-                                                                                                document.querySelector('#' + k).classList.remove('j-blue');
-                                                                                                document.querySelector('#' + k).classList.remove('j-card-6');
+                                          function selectDemo(demo) {
+                                              for (var k in demos) {
+                                                  document.querySelector('#' + k).classList.remove('j-blue');
+                                                  document.querySelector('#' + k).classList.remove('j-card-6');
 
-                                                                                            }
-                                                                                            document.querySelector('#' + demo).classList.add('j-blue');
-                                                                                            document.querySelector('#' + demo).classList.add('j-card-6');
-                                                                                            document.querySelector('#start-form').style.display = 'block';
-                                                                                            selected = demo;
-                                                                                            document.querySelector('#email').focus();
+                                              }
+                                              document.querySelector('#' + demo).classList.add('j-blue');
+                                              document.querySelector('#' + demo).classList.add('j-card-6');
+                                              document.querySelector('#start-form').style.display = 'block';
+                                              selected = demo;
+                                              document.querySelector('#email').focus();
 
-                                                                                        }
+                                          }
 
-                                                                                        function startTrial() {
-                                                                                            var mail = document.querySelector('#email').value;
-                                                                                            window.location = 'demos/' + demos[selected] + '/index.html?mail=' + encodeURIComponent(mail);
-                                                                                        }
+                                          function startTrial() {
+                                              var mail = document.querySelector('#email').value;
+                                              window.location = 'demos/' + demos[selected] + '/index.html?mail=' + encodeURIComponent(mail);
+                                          }
 
 </script>
 
