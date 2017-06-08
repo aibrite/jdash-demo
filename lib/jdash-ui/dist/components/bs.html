@@ -1,0 +1,186 @@
+<html><head><meta charset="UTF-8"></head><body><div hidden="" by-vulcanize=""><style>
+    j-dashboard {
+        display: block;
+    }
+</style>
+<j-component id="j-dashboard">
+    <template>
+        <slot name="layout"></slot>
+    </template>
+</j-component><style>
+    j-grid-layout {
+        display: block;
+    }
+</style>
+<j-component id="j-grid-layout">
+    <template>
+        <section title="Another section" j-type="j-layout-section">
+            <div class="j-container" j-type="j-layout-section-header">
+                <h2 j-type="j-layout-section-title">Another section</h2>
+            </div>
+            <div class="j-row-padding j-container" j-type="j-dashlet-zone-group">
+                <div j-dashlet-zone="z1-2">
+                </div>
+                <div j-dashlet-zone="z1-3">
+                </div>
+            </div>
+        </section>
+        <section j-type="j-layout-section">
+
+            <div class="j-container" j-type="j-layout-section-header">
+                <h2 j-type="j-layout-section-title">Some section</h2>
+            </div>
+
+            <div class="j-row-padding j-container">
+                <div j-dashlet-zone="z2-1">
+                </div>
+                <div j-dashlet-zone="z2-2">
+                </div>
+                <div j-dashlet-zone="z2-3">
+
+                </div>
+                <div j-dashlet-zone="z2-4">
+
+                </div>
+            </div>
+
+        </section>
+
+
+
+        <template j-type="j-dropzone" class="j-panel j-border j-drop-zone j-padding-12">
+        </template>
+
+        <template j-type="j-zone-editor" class="j-center j-panel j-border  j-theme-l5 j-padding-top">
+
+            <a j-action="movezone" j-action-params="direction:prev" class="j-btn j-margin-bottom  j-round-large  j-theme-l5 "><i class="fa fa-arrow-left"></i></a>
+            <a j-action="movezone" j-action-params="direction:next" class="j-btn j-margin-bottom j-round-large  j-theme-l5 "><i class="fa fa-arrow-right"></i></a>
+            <a j-action="resizezone" j-action-params="inc:1" class="j-btn j-margin-bottom j-round-large  j-theme-l5 "><i class="fa fa-expand"></i></a>
+            <a j-action="resizezone" j-action-params="inc:-1" class="j-btn j-margin-bottom j-round-large  j-theme-l5 "><i class="fa fa-compress"></i></a>
+
+            <a j-action="makezonegroup" class="j-btn j-margin-bottom  j-round-large j-theme-l5 "><i class="fa fa-th-large"></i></a>
+            <a j-action="clonezone" class="j-btn j-margin-bottom j-round-large  j-theme-l5 "><i class="fa fa-clone"></i></a>
+            <a j-action="removezone" class="j-btn j-margin-bottom j-round-large  j-theme-l5 "><i class="fa fa-trash"></i></a>
+
+        </template>
+
+        <template j-type="j-section-editor" class="j-animate-opacity j-layout-container  j-border-top j-border-bottom j-theme-l5">
+
+            <div class="j-container j-layout-col j-layout-middle">
+                <h4 j-type="j-layout-section-title"></h4>
+            </div>
+
+            <div class="j-container j-layout-col j-layout-middle j-right-align">
+                <button j-action="movesection" j-action-params="direction:prev" class="j-btn j-round-large j-theme-l5"><i class="fa fa-arrow-up"></i></button>
+                <button j-action="movesection" j-action-params="direction:next" class="j-btn j-round-large j-theme-l5"><i class="fa fa-arrow-down"></i></button>
+                <button j-action="clonesection" class="j-btn  j-round-large j-theme-l5"><i class="fa fa-clone"></i></button>
+                <button j-action="editsectiontitle" class="j-btn  j-round-large j-theme-l5"><i class="fa fa-pencil-square-o"></i></button>
+                <button j-action="resetsection" class="j-btn  j-round-large j-theme-l5"><i class="fa fa-rotate-left"></i></button>
+                <button j-action="removesection" class="j-btn j-round-large j-theme-l5"><i class="fa fa-trash"></i></button>
+
+
+
+            </div>
+
+
+
+        </template>
+
+        <template j-type="j-dashlet-zone-group-editor" class="j-layout-container   j-theme-l5 j-animate-opacity">
+
+
+            <div class="j-container j-layout-col j-layout-middle">
+                <h5 j-type="j-dashlet-zone-group-title"></h5>
+            </div>
+
+            <div class="j-container j-layout-col j-layout-middle j-right-align">
+                <div class="j-show-inline-block">
+                    <div class="j-btn-group j-show-inline-block">
+                        <button j-action="movezonegroup" j-action-params="direction:prev" class="j-btn  j-theme-l5"><i class="fa fa-arrow-up"></i></button>
+                        <button j-action="movezonegroup" j-action-params="direction:next" class="j-btn  j-theme-l5"><i class="fa fa-arrow-down"></i></button>
+                    </div>
+
+                    <div class="j-btn-group j-show-inline-block">
+                        <button j-action="clonezonegroup" class="j-btn j-theme-l5"><i class="fa fa-clone"></i></button>
+                        <button j-action="editzonegrouptitle" class="j-btn  j-theme-l5"><i class="fa fa-pencil-square-o"></i></button>
+                        <button j-action="removezonegroup" class="j-btn  j-theme-l5"><i class="fa fa-trash"></i></button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+        </template>
+
+        <template j-type="j-dashlet-zone-group" class="j-container j-theme-l5 j-border j-border-theme  j-margin-bottom">
+
+            <div j-type="j-dashlet-zone-group-header">
+                <h3 class="j-center" j-type="j-dashlet-zone-group-title">
+                    My group
+                </h3>
+            </div>
+            <div class="j-row-padding j-margin-bottom">
+                <div j-dashlet-zone=""></div>
+                <div j-dashlet-zone=""></div>
+            </div>
+
+
+        </template>
+    </template>
+</j-component><style>
+    j-dashlet-panel {
+        display: block;
+    }
+</style>
+<j-component id="j-dashlet-panel">
+    <template>
+        <div class="j-margin-bottom">
+            <template j-drag-handle="" j-type="j-dashlet-header" class="j-container j-theme" j-target-tag="header">
+                <h4 j-bind="title" j-bind-default="&nbsp;" class="j-truncate" j-type="j-dashlet-title">
+                </h4>
+            </template>
+            <template j-type="j-dashlet-configuration-tools" class="j-padding j-center j-theme-light">
+                <a j-action="configuredashlet" class="j-btn-floating j-icon-btn j-theme-action"><i class="fa fa-pencil"></i></a>
+                <a j-action="setdashlettitle" class="j-btn-floating j-icon-btn j-theme-action"><i class="fa fa-font"></i></a>
+                <a j-action="clonedashlet" class="j-btn-floating j-icon-btn j-theme-action"><i class="fa fa-clone"></i> </a>
+                <a j-action="removedashlet" class="j-btn-floating j-icon-btn j-theme-action"><i class="fa fa-trash"></i> </a>
+            </template>
+            <div j-type="j-dashlet-container" class="j-content-theme">
+                <slot name="body"></slot>
+            </div>
+        </div>
+    </template>
+</j-component><style>
+    j-dashlet-editor-panel {
+        display: block;
+    }
+</style>
+<j-component id="j-dashlet-editor-panel">
+    <template>
+        <div class="j-modal">
+            <div class="j-modal-content j-animate-zoom j-card-8 j-round">
+                <header class="j-container j-theme handle">
+                    <span j-action="closeeditor" class="j-closebtn">×</span>
+                    <h2 j-bind="title" class="j-truncate" j-type="j-dashlet-title">
+                        Configure
+                    </h2>
+                </header>
+                <div class="j-content-theme">
+                    <slot name="body"></slot>
+                </div>
+                <div class="j-container j-border-top j-padding-16 j-theme-light">
+                    <a j-action="setconfig" class="j-btn j-theme-action">Done</a>
+
+                </div>
+            </div>
+        </div>
+    </template>
+
+</j-component></div></body></html>

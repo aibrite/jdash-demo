@@ -8,18 +8,31 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>JDash Demo</title>
 
+<<<<<<< HEAD
     <!--removeIf(noprod)-->
     <link rel="stylesheet" href="node_modules/jdash-ui/dist/components/jdash.css">
     <!--endRemoveIf(noprod)-->
 
     
 
+=======
+    <link rel="stylesheet" href="lib/jdash-ui/dist/components/jdash.css">
+
+    
+
+
+
+
+>>>>>>> 709684a96b3fa733adc590106bc98d199cc3d7e1
     <link rel="stylesheet" href="css/demo.css">
 </head>
 
 <body>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 709684a96b3fa733adc590106bc98d199cc3d7e1
     <div class="j-margin-bottom">
 
         <div class="j-container j-blue">
@@ -91,6 +104,7 @@
 </body>
 
 <script>
+<<<<<<< HEAD
     var selected = 'jdashdemo';
 
     var demos = {
@@ -130,6 +144,34 @@
 
     ga('create', 'UA-92563252-2', 'auto');
     ga('send', 'pageview');
+=======
+                                          var selected = 'jdashdemo';
+
+                                          var demos = {
+                                              jdashdemo: 'jdash',
+                                              bsdemo: 'bootstrap',
+                                              mtdemo: 'material'
+                                          }
+
+                                          function selectDemo(demo) {
+                                              for (var k in demos) {
+                                                  document.querySelector('#' + k).classList.remove('j-blue');
+                                                  document.querySelector('#' + k).classList.remove('j-card-6');
+
+                                              }
+                                              document.querySelector('#' + demo).classList.add('j-blue');
+                                              document.querySelector('#' + demo).classList.add('j-card-6');
+                                              document.querySelector('#start-form').style.display = 'block';
+                                              selected = demo;
+                                              document.querySelector('#email').focus();
+
+                                          }
+
+                                          function startTrial() {
+                                              var mail = document.querySelector('#email').value;
+                                              window.location = 'demos/' + demos[selected] + '/index.html?mail=' + encodeURIComponent(mail);
+                                          }
+>>>>>>> 709684a96b3fa733adc590106bc98d199cc3d7e1
 
 </script>
 

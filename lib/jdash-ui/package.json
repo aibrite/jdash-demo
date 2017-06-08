@@ -1,0 +1,76 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "jdash-ui@git+https://github.com/aibrite/jdash-ui.git",
+        "scope": null,
+        "escapedName": "jdash-ui",
+        "name": "jdash-ui",
+        "rawSpec": "git+https://github.com/aibrite/jdash-ui.git",
+        "spec": "git+https://github.com/aibrite/jdash-ui.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:aibrite/jdash-ui.git",
+          "sshUrl": "git+ssh://git@github.com/aibrite/jdash-ui.git",
+          "httpsUrl": "git+https://github.com/aibrite/jdash-ui.git",
+          "gitUrl": "git://github.com/aibrite/jdash-ui.git",
+          "shortcut": "github:aibrite/jdash-ui",
+          "directUrl": "https://raw.githubusercontent.com/aibrite/jdash-ui/master/package.json"
+        }
+      },
+      "/Users/physioh/project/jdash/jdash-demo"
+    ]
+  ],
+  "_from": "git+https://github.com/aibrite/jdash-ui.git",
+  "_id": "jdash-ui@0.0.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/jdash-ui",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "jdash-ui@git+https://github.com/aibrite/jdash-ui.git",
+    "scope": null,
+    "escapedName": "jdash-ui",
+    "name": "jdash-ui",
+    "rawSpec": "git+https://github.com/aibrite/jdash-ui.git",
+    "spec": "git+https://github.com/aibrite/jdash-ui.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:aibrite/jdash-ui.git",
+      "sshUrl": "git+ssh://git@github.com/aibrite/jdash-ui.git",
+      "httpsUrl": "git+https://github.com/aibrite/jdash-ui.git",
+      "gitUrl": "git://github.com/aibrite/jdash-ui.git",
+      "shortcut": "github:aibrite/jdash-ui",
+      "directUrl": "https://raw.githubusercontent.com/aibrite/jdash-ui/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/aibrite/jdash-ui.git#801c258b3ef1666fb6894c496bce72d38919504c",
+  "_shasum": "62f68f863fdc7a7f4dec9ebee442e99b6ea7970d",
+  "_shrinkwrap": null,
+  "_spec": "jdash-ui@git+https://github.com/aibrite/jdash-ui.git",
+  "_where": "/Users/physioh/project/jdash/jdash-demo",
+  "author": {
+    "name": "aibrite inc."
+  },
+  "dependencies": {},
+  "description": "jdash client library",
+  "devDependencies": {},
+  "gitHead": "801c258b3ef1666fb6894c496bce72d38919504c",
+  "license": "SEE LICENSE IN license.md",
+  "main": "dist/jdash.min.js",
+  "name": "jdash-ui",
+  "optionalDependencies": {},
+  "readme": "# jdash client library\n",
+  "readmeFilename": "README.md",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "types": "dist/definitions/index.d.ts",
+  "version": "0.0.1"
+}
