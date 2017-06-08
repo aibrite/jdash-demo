@@ -1,1 +1,2 @@
-(c) 2017 aibrite inc. All rights reserved.
+(c) 2017 Aibrite Inc. All rights reserved.
+

@@ -9,16 +9,22 @@
         display: block;
     }
 </style>
-<j-component id="j-dashboard">
+<j-component id="j-dashboard" delay-register="true">
     <template>
         <slot name="layout"></slot>
     </template>
+    <script>
+        jdash.define({
+            elementClass: jdash.Dashboard
+        })
+    </script>
 </j-component><style>
     j-grid-layout {
         display: block;
     }
 </style>
-<j-component id="j-grid-layout">
+<j-component id="j-grid-layout" delay-register="true">
+    <div class="s"></div>
     <template>
         <template j-type="j-layout-content">
             <div j-persist="">
@@ -136,12 +142,18 @@
             </div>
         </template>
     </template>
+
+    <script>
+        jdash.define({
+            elementClass: jdash.GridLayout
+        })
+    </script>
 </j-component><style>
     j-dashlet-panel {
         display: block;
     }
 </style>
-<j-component id="j-dashlet-panel">
+<j-component id="j-dashlet-panel" delay-register="true">
     <template>
         <div class="j-margin-bottom j-theme-content j-round-large">
             <template j-drag-handle="" j-type="j-dashlet-header" class="j-container j-theme" j-target-tag="header">
@@ -159,12 +171,17 @@
             </div>
         </div>
     </template>
+    <script>
+        jdash.define({
+            elementClass: jdash.DashletPanel
+        })
+    </script>
 </j-component><style>
     j-dashlet-editor-panel {
         display: block;
     }
 </style>
-<j-component id="j-dashlet-editor-panel">
+<j-component id="j-dashlet-editor-panel" delay-register="true">
     <template>
         <div class="j-modal">
             <div class="j-modal-content j-animate-zoom j-card-8 j-round">
@@ -184,5 +201,9 @@
             </div>
         </div>
     </template>
-
+    <script>
+        jdash.define({
+            elementClass: jdash.DashletEditorPanel
+        })
+    </script>
 </j-component></div></body></html>

@@ -13,8 +13,6 @@
     var getDemoToken = function (email) {
         var url = 'https://app.jdash.io/api/v1';
 
-        // var url = 'https://app.jdash.io/api/v1';
-
         var instance = jdash.Http.default.create({
             baseURL: url
         });
