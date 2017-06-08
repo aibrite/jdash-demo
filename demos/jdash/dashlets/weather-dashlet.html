@@ -1,0 +1,231 @@
+<style>
+    j-weather .weather-container {
+        padding-top: 20px;
+        min-height: 600px;
+        overflow-y: auto;
+    }
+    
+    j-weather {
+        width: 400px;
+    }
+    
+    article {
+        text-align: center;
+        background: rgba(255, 255, 255, .4);
+        width: 300px;
+        margin: 2em auto;
+        padding: 1em;
+    }
+    
+    j-weather h2 {
+        margin-bottom: 1.5em;
+    }
+    
+    j-weather p {
+        font-size: 1.3em;
+    }
+    /* Units Toggle */
+    
+    #toggle {
+        padding: 0em 2em;
+        float: right;
+    }
+    
+    #metric {
+        border-top-left-radius: .3em;
+        border-bottom-left-radius: .3em;
+    }
+    
+    #imperial {
+        margin-left: -.26em;
+        border-top-right-radius: .3em;
+        border-bottom-right-radius: .3em;
+    }
+    
+    j-weather button {
+        background-color: #e2e2e2;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#e2e2e2), to(#bebebe));
+        background-image: -webkit-linear-gradient(top, #e2e2e2, #bebebe);
+        background-image: linear-gradient(top, #e2e2e2, #bebebe);
+        border: 1px solid #bdbdbd;
+        -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        color: #444;
+    }
+    
+    j-weather button.active {
+        background-color: #f5f5f5;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#f1f1f1));
+        background-image: -webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
+        background-image: linear-gradient(top, #f5f5f5, #f1f1f1);
+        border: 1px solid #dcdcdc;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        color: #222;
+    }
+    /* Weather Data Styles */
+    
+    j-weather .icon {
+        display: inline;
+        vertical-align: middle;
+        margin-top: -1.5em;
+    }
+    
+    #temp {
+        font-size: 3em;
+    }
+    
+    #units {
+        font-size: 2em;
+        vertical-align: super;
+    }
+    
+    #description,
+    #daily {
+        font-weight: bold;
+    }
+</style>
+
+
+
+<j-dashlet id="j-weather" title="Weather Forecast">
+    <template>
+        <div class="weather-container">
+            <form id="toggle">
+                <button type="button" id="cel">&deg;C</button>
+                <button type="button" id="far">&deg;F</button>
+            </form>
+            <article>
+                <section id="weather">
+                    <img alt="loading" id="spinner" src="../../assets/spinner.gif">
+                </section>
+                <section id="forecast">
+                    <noscript>This application requires JavaScript to function. Please enable scripts in your browser.</noscript>
+                </section>
+            </article>
+        </div>
+    </template>
+
+    </template>
+    <script>
+        jdash.define(function () {
+            this.initialized = function () {
+                geolocation();
+                var self = this;
+                switch (localStorage.getItem("Units")) {
+                    case null:
+                        if (window.navigator.language == "en-US") {
+                            localStorage.Units = "imperial";
+                            self.querySelector('#far').classList.remove('inactive');
+                            self.querySelector('#far').classList.add('active');
+                        }
+                        else {
+                            localStorage.Units = "metric";
+                            self.querySelector('#cel').classList.remove('inactive');
+                            self.querySelector('#cel').classList.add('active');
+                        }
+                        break;
+                    case "metric":
+                        self.querySelector('#cel').classList.remove('inactive');
+                        self.querySelector('#cel').classList.add('active');
+                        break;
+                    case "imperial":
+                        self.querySelector('#far').classList.remove('inactive');
+                        self.querySelector('#far').classList.add('active');
+                        break;
+                }
+                function SetCelsius() {
+                    localStorage.Units = "metric";
+                    self.querySelector('#cel').classList.remove('inactive');
+                    self.querySelector('#cel').classList.add('active');
+                    self.querySelector('#far').classList.remove('inactive');
+                    self.querySelector('#far').classList.add('active');
+                    location.reload();
+                }
+                function SetFahrenheit() {
+                    localStorage.Units = "imperial";
+                    self.querySelector('#far').classList.remove('inactive');
+                    self.querySelector('#far').classList.add('active');
+                    self.querySelector('#cel').classList.remove('inactive');
+                    self.querySelector('#cel').classList.add('active');
+
+                    location.reload();
+                }
+                function geolocation() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(getcoordinates, showError);
+                    }
+                    else {
+                        self.querySelector('#weather').innerHTML("Geolocation is not supported by this browser.")
+                    }
+                }
+                function getcoordinates(position) {
+                    var lat = position.coords.latitude;
+                    var long = position.coords.longitude;
+                    var units = localStorage.getItem("Units");
+                    var CurrentWeatherURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&units=" + units + '&APPID=7904cb95b212d74ed9dd29bfc979221b';
+                    var DailyForecastURL = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + lat + "&lon=" + long + "&units=" + units + "&cnt=1" + '&APPID=7904cb95b212d74ed9dd29bfc979221b';
+                    if (units == "imperial") {
+                        getWeather(CurrentWeatherURL, DailyForecastURL, "F", "mph")
+                    }
+                    else {
+                        getWeather(CurrentWeatherURL, DailyForecastURL, "C", "m\/s")
+                    }
+                }
+                function showError(error) {
+                    switch (error.code) {
+                        case error.PERMISSION_DENIED:
+                            self.querySelector('#weather').innerHTML = 'User denied the request for Geolocation.'
+                            break;
+                        case error.POSITION_UNAVAILABLE:
+                            self.querySelector('#weather').innerHTML = 'Location information is unavailable.'
+                            break;
+                        case error.TIMEOUT:
+                            self.querySelector('#weather').innerHTML = 'The request to get user location timed out.'
+                            break;
+                        case error.UNKNOWN_ERROR:
+                            self.querySelector('#weather').innerHTML = 'An unknown error occurred.'
+                            break;
+                    }
+                }
+                var data_timestamp = Math.round(new Date().getTime() / 1000);
+                function getWeather(data_url, forecast_url, temp, wind) {
+                    jdash.Http.get(data_url).then(function (res) {
+                        localStorage.WeatherCache = JSON.stringify(res.data);
+
+                    });
+                    jdash.Http.get(forecast_url).then(function (res) {
+                        localStorage.ForecastCache = JSON.stringify(res.data);
+                        displayData(temp, wind);
+                    }).catch(function (err) {
+                        self.querySelector('#weather').innerHTML("Error retrieving current weather data :: " + err.status);
+                    });
+                    localStorage.timestamp = data_timestamp;
+                };
+                function displayData(temp_units, wind_units) {
+                    try {
+                        // If the timestamp is newer  than 30 minutes, parse data from cache
+                        if (localStorage.getItem('timestamp') > data_timestamp - 1800) {
+                            var data = JSON.parse(localStorage.WeatherCache);
+                            var forecast = JSON.parse(localStorage.ForecastCache);
+                            document.querySelector('.weather-container').style.background = "url('../../assets/backgrounds/" + data.weather[0].icon + ".jpg') no-repeat fixed 50% 50%";
+                            document.querySelector('.weather-container').style.backgroundSize = "cover";
+                            self.querySelector('#weather').innerHTML = '<h2>' + data.name + '</h2><img class="icon" src="../../assets/icons/' + data.weather[0].icon + '.png"><span id="temp">' + data.main.temp + ' </span><span id="units">&deg;' + temp_units + '</span><p id="description">' + data.weather[0].description + '</p><p><span id="humidity">' + data.main.humidity + '% humidity</span>&nbsp;&nbsp;&nbsp;&nbsp;' + Math.round(data.wind.speed) + wind_units + ' wind</p>' + '<p id="daily">Today\'s Forecast: ' + forecast.list[0].weather[0].main + '</p><p>max: ' + Math.round(forecast.list[0].temp.max) + '&deg;' + temp_units + ' &nbsp;&nbsp;&nbsp;&nbsp;min: ' + Math.round(forecast.list[0].temp.min) + '&deg;' + temp_units + '</p>';
+                        }
+                        else {
+                            geolocation();
+                        }
+                    }
+                    catch (error) {
+                        window.console && console.error(error);
+                    }
+                }
+            }
+
+        })
+    </script>
+</j-dashlet>
+<j-dashlet-editor id="weather-dashlet-editor">
+    <template>
+        <h3>this is editor for Weather Forecast Dashlet</h3>
+    </template>
+</j-dashlet-editor>

@@ -13,7 +13,7 @@
     <script>
         jdash.define(function () {
             this.initialized = function () {
-                this.contentEl = this.firstElementChild;
+                this.contentEl = jdash.Helper.getFirstElementChild(this);
                 this.loadConfiguration();
             }
 

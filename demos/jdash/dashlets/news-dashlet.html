@@ -1,0 +1,127 @@
+<style>
+    .article-image {
+        margin-top: 20px;
+        height: 100px;
+        width: 100px;
+        margin-left: 20px;
+        float: left;
+        padding-bottom: 20px;
+    }
+    
+    j-news .news-container {
+        max-height: 400px;
+        overflow-y: auto;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    
+    .news {
+        display: flex;
+        background: lightgray;
+        border-radius: 5px;
+        margin-top: 20px;
+        vertical-align: middle;
+    }
+    
+    .article-link {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: bold;
+    }
+    
+    .article {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 20px;
+    }
+    
+    .description {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: gray;
+        font-size: 0.7em;
+    }
+    
+    #newsSource {
+        margin-left: 10px;
+        border: 1px solid #bbb;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        width: 400px;
+    }
+    
+    .newsHeader {
+        margin-left: 10px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+</style>
+
+<j-dashlet id="j-news" title="News Feed">
+    <template>
+        <div class="news-container"></div>
+        <template id="article-template">
+            <div class="news">
+                <div class="article-image-cnt">
+                    <img class="article-image">
+                </div>
+                <div class="article">
+                    <a class="article-link" href=""></a>
+                    <p class="description"></p>
+                </div>
+            </div>
+        </template>
+    </template>
+    <script>
+        jdash.define(function () {
+            this.loadConfig = function () {
+                var source = this.config.get('source') || 'techcrunch';
+                var self = this;
+                var request = new XMLHttpRequest();
+                request.open("GET", "https://newsapi.org/v1/articles?source=" + source + "&apiKey=1443cef42cef47489ef0e831f0ff1908", true);
+                request.onreadystatechange = function () {
+                    if (request.status == 200 && request.readyState == 4) {
+                        var data = JSON.parse(request.responseText);
+                        self.querySelector('.news-container').innerHTML = '';
+                        data.articles.forEach(function (article) {
+                            var artTemp = self.querySelector('#article-template');
+                            var cloned = document.importNode(artTemp.content, true);
+                            cloned.querySelector('.article-image').src = article.urlToImage;
+                            cloned.querySelector('.article-link').href = article.url;
+                            cloned.querySelector('.article-link').innerText = article.title.toUpperCase();
+                            cloned.querySelector('.description').innerText = article.description;
+                            self.querySelector('.news-container').appendChild(cloned);
+                        });
+                    }
+                }
+
+                request.send();
+            }
+            this.initialized = function () {
+            }
+        })
+    </script>
+</j-dashlet>
+<j-dashlet-editor id="j-news-editor">
+    <template>
+        <div class="newsHeader">News Configuration</div>
+        <form>
+            <input id="newsSource" type="text" placeholder="News Source (i.e techcrunch, cnn, the-next-web)" />
+        </form>
+    </template>
+    <script>
+        jdash.define(function () {
+            this.initialized = function () {
+                var inputEl = this.querySelector('input');
+                inputEl.value = this.dashlet.config.get('source') || '';
+            }
+
+            this.addEventListener('setconfig', function (event) {
+                var inputEl = this.querySelector('input'), value = inputEl.value;
+                if (!value) {
+                    alert('Set a valid value please!');
+                    event.preventDefault();
+                } else this.dashlet.config.set('source', value)
+            })
+        });
+    </script>
+</j-dashlet-editor>

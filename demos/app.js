@@ -13,8 +13,6 @@
     var getDemoToken = function (email) {
         var url = 'https://app.jdash.io/api/v1';
 
-        // var url = 'https://app.jdash.io/api/v1';
-
         var instance = jdash.Http.default.create({
             baseURL: url
         });
@@ -72,6 +70,8 @@
 
         window.jdash.Provider.init({
             userToken: function (cb) {
+                //tansu: Removed
+                //cb(null,"-");
                 getDemoToken(self.query.mail).then(function (token) {
                     cb(null, token);
                 }).catch(function (err) { cb(err) });
@@ -160,7 +160,7 @@
         for (var i = 0; i < this.dashletModules.length; i++) {
             var module = this.dashletModules[i];
             var el = document.importNode(this.dashletListItemTemplate.content, true);
-            var content = el.firstElementChild;
+            var content = jdash.Helper.getFirstElementChild(el);
             content.setAttribute('j-type', 'j-dashlet-module')
             content.setAttribute('j-module-id', module.elementTag);
             content.classList.add('dashlet-module');
@@ -223,7 +223,7 @@
         this.dashboardListContainer.innerHTML = '';
         dashboards.forEach(function (dashboard) {
             var el = document.importNode(this.dashboardListItemTemplate.content, true);
-            var a = el.firstElementChild;
+            var a = jdash.Helper.getFirstElementChild(el);
             a.addEventListener('click', this.loadDashboard.bind(this, dashboard, null));
 
             a.textContent = dashboard.title;
@@ -251,7 +251,7 @@
 
 
     app.prototype.createDashboard = function () {
-        var title = window.prompt();
+        var title = window.prompt("Set Dashboard Title");
         if (title) {
             var model = {
                 title: title,

@@ -8,23 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aibrite/jdash-demo.git"
+    "url": "https://github.com/aibrite/jdash-demo.git"
   },
-  "author": "",
+  "author": "Aibrite Inc.",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aibrite/jdash-demo/issues"
   },
   "homepage": "https://github.com/aibrite/jdash-demo#readme",
   "dependencies": {
-    "jdash-ui": "git+https://github.com/aibrite/jdash-ui.git"
+    "jdash-ui": "^1.0.0"
   },
-  "devDependencies": {
-    "del": "^2.2.2",
-    "gh-pages": "^0.12.0",
-    "gulp": "^3.9.1",
-    "gulp-merge": "^0.1.1",
-    "gulp-replace": "^0.5.4",
-    "gulp-shell": "^0.6.3"
-  }
+  "devDependencies": {}
 }

@@ -1,0 +1,296 @@
+<style>
+    @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+    @-webkit-keyframes Loader-in {
+        0% {
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+        }
+        50% {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+        100% {
+            -webkit-transform: translate3d(0, -100px, 0);
+            transform: translate3d(0, -100px, 0);
+        }
+    }
+    
+    @keyframes Loader-in {
+        0% {
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+        }
+        50% {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+        100% {
+            -webkit-transform: translate3d(0, -100px, 0);
+            transform: translate3d(0, -100px, 0);
+        }
+    }
+    
+    @-webkit-keyframes Poster-in {
+        0% {
+            opacity: 0;
+            -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+    
+    @keyframes Poster-in {
+        0% {
+            opacity: 0;
+            -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+    
+    .movie-container {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 12px;
+        line-height: 24px;
+        -webkit-font-smoothing: antialiased;
+        overflow: hidden;
+        padding: 32px;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+    
+    j-movie p,
+    j-movie h1,
+    j-movie h2,
+    j-movie h3 {
+        padding: 0;
+        margin: 0;
+    }
+    
+    [c-poster] {
+        -webkit-animation: Poster-in .8s 1;
+        animation: Poster-in .8s 1;
+        -webkit-animation-fill-mode: backwards;
+        animation-fill-mode: backwards;
+        background: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        display: block;
+        float: left;
+        height: 441px;
+        color: inherit;
+        overflow: hidden;
+        margin-bottom: 32px;
+        padding: 32px;
+        padding-left: 50px;
+        position: relative;
+        -webkit-transition: .4s box-shadow;
+        transition: .4s box-shadow;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        width: 300px;
+    }
+    
+    [c-poster] {
+        margin-left: 10px;
+    }
+    
+    [c-poster]:hover {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        -webkit-transition: .4s box-shadow .2s;
+        transition: .4s box-shadow .2s;
+    }
+    
+    [c-poster]:hover [c-poster-cover] {
+        -webkit-transform: translate3d(-280px, 0, 0);
+        transform: translate3d(-280px, 0, 0);
+    }
+    
+    [c-poster]:hover [c-poster-cover-photo] {
+        opacity: .5;
+        -webkit-transform: translate3d(140px, 0, 0);
+        transform: translate3d(140px, 0, 0);
+    }
+    
+    [c-poster-cover] {
+        background: #000;
+        height: 100%;
+        left: 0;
+        overflow: hidden;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        -webkit-transition: -webkit-transform .4s;
+        transition: transform .4s;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        width: 100%;
+        z-index: 9;
+    }
+    
+    [c-poster-cover-photo] {
+        background: transparent no-repeat center center / cover;
+        height: 100%;
+        -webkit-transition: -webkit-transform, opacity;
+        transition: transform, opacity;
+        -webkit-transition-duration: .4s;
+        transition-duration: .4s;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        width: 100%;
+    }
+    
+    [c-poster-title] {
+        font-size: 14px;
+        color: #363636;
+    }
+    
+    [c-poster-network] {
+        font-size: 14px;
+        color: #bababa;
+        margin-bottom: 24px;
+    }
+    
+    [c-poster-description] {
+        font-size: 12px;
+        background: #fff;
+        line-height: 18px;
+        color: #474849;
+        padding-bottom: 36px;
+        max-height: 260px;
+        overflow: hidden;
+        position: relative;
+        -webkit-transition: max-height .6s;
+        transition: max-height .6s;
+        z-index: 1;
+        font-weight: 100;
+    }
+    
+    [c-poster-description]::before {
+        content: '';
+        display: block;
+        background: -webkit-linear-gradient(top, transparent, #fff);
+        background: linear-gradient(to bottom, transparent, #fff);
+        height: 36px;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        bottom: 0;
+    }
+    
+    [c-poster-description]:active {
+        max-height: 300px;
+    }
+    
+    [c-poster-seasons] {
+        position: absolute;
+        bottom: 32px;
+        text-decoration: none;
+        color: #000;
+    }
+    
+    .movie-poster {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .movie-selection {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    j-movie button {
+        text-align: center;
+        margin-left: 10px;
+        background-color: limegreen;
+        border-radius: 5px;
+        color: white;
+    }
+</style>
+<link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
+
+<j-dashlet id="j-movie" title="Movies Popular Now">
+    <template>
+        <div class="movie-selection">
+            <button class="popular">Popular</button>
+            <button class="upcoming">Upcoming</button>
+            <button class="now-playing">Now Playing</button>
+        </div>
+        <div class="movie-container">
+        </div>
+        <template id="movie-template">
+            <div c-poster="c-poster">
+                <div c-poster-cover="c-poster-cover">
+                    <div c-poster-cover-photo="c-poster-cover-photo"><img class="movie-poster" src="" alt=""></div>
+                </div>
+                <div c-poster-body="c-poster-body">
+                    <h2 c-poster-title="c-poster-title" class="movie-title"></h2>
+                    (<span class="movie-release"></span>)
+                    <h3 c-poster-network="c-poster-network">Rating: <span class="rating"></span></h3>
+                    <p c-poster-description="c-poster-description" class="movie-overview"></p>
+                    <a c-poster-seasons="c-poster-seasons">Original Language: <span class="language"></span></a>
+                </div>
+            </div>
+        </template>
+    </template>
+    <script>
+        jdash.define(function () {
+            var self = this;
+            this.initialized = function () {
+
+                var api_key = "d9b5fe2112c5a47148692145ef9d167b"
+
+                var endpoints = ["popular", "now_playing", "upcoming"];
+
+                function getMovies(type) {
+                    var moviesUrl = "//api.themoviedb.org/3/movie/" + type + "?api_key=" + api_key + "&page=1";
+                    jdash.Http.get(moviesUrl).then(function (res) {
+                        var movies = res.data.results;
+                        self.querySelector('.movie-container').innerHTML = '';
+                        movies.forEach(function (movie) {
+                            var movieTemp = self.querySelector('#movie-template');
+                            var cloned = document.importNode(movieTemp.content, true);
+                            cloned.querySelector(".movie-title").innerText = movie.original_title;
+                            cloned.querySelector(".movie-poster").src = "https://image.tmdb.org/t/p/w780/" + movie.poster_path;
+                            cloned.querySelector(".movie-overview").innerText = movie.overview;
+                            cloned.querySelector(".rating").innerText = movie.vote_average;
+                            cloned.querySelector(".movie-release").innerText = movie.release_date;
+                            cloned.querySelector(".language").innerText = movie.original_language.toUpperCase();
+                            self.querySelector('.movie-container').appendChild(cloned);
+
+                        })
+
+                    })
+                }
+                getMovies(endpoints[0]);
+                self.querySelector('.popular').addEventListener('click', function () {
+                    getMovies(endpoints[0]);
+                })
+                self.querySelector('.upcoming').addEventListener('click', function () {
+                    getMovies(endpoints[2]);
+                })
+                self.querySelector('.now-playing').addEventListener('click', function () {
+                    getMovies(endpoints[1]);
+                })
+
+            }
+
+        })
+    </script>
+</j-dashlet>
+
+<j-dashlet-editor id="newmovie-dashlet-editor">
+    <template>
+        <h3>this is editor for Movie Dashlet</h3>
+    </template>
+</j-dashlet-editor>
