@@ -1,0 +1,83 @@
+<style>
+    .user-content {
+        padding: 16px;
+    }
+</style>
+
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+
+<j-dashlet id="rich-content" title="Rich Content">
+    <template>
+        <div class="user-content">
+            hi from content
+        </div>
+    </template>
+
+    <script>
+        jdash.define(function () {
+            this.initialized = function () {
+                this.contentEl = jdash.Helper.getFirstElementChild(this);
+                this.loadConfiguration();
+            }
+
+            this.loadConfiguration = function () {
+                this.contentEl.innerHTML = this.config.get('html') || '';
+                if (!this.contentEl.innerHTML) {
+                    this.contentEl.innerHTML = "<h2>This is a sample html content</h2>" +
+                        '<p>' + 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel ligula magna. Donec id augue ac felis luctus iaculis eu eu arcu. Sed sed elementum enim, ut sagittis purus. Aenean nec consectetur ip' + '</p>';
+
+                    this.config.set('html', this.contentEl.innerHTML);
+                }
+            }
+
+            // this.addEventListener('configurationchange', function (event) {
+            //     var content = this.querySelector('div.user-content');
+            //     content.innerHTML = event.detail.newVal;
+            // })
+
+            this.addEventListener('configsaved', function (event) {
+                this.loadConfiguration();
+            })
+        })
+    </script>
+
+</j-dashlet>
+
+<j-dashlet-editor id="rich-content-editor">
+    <template>
+        <style>
+            textarea {
+                width: 100%;
+                font-family: Courier New, Courier, monospace;
+                font-size: 14px;
+            }
+        </style>
+        <textarea name="editor" id="editor" rows="10" cols="80">
+              
+            </textarea>
+
+
+    </template>
+    <script>
+        jdash.define(function () {
+
+            this.initialized = function () {
+                tinymce.init({ selector: '#editor' }).then(function (editor) {
+                    this.editor = editor[0];
+                    var html = this.dashlet.config.get('html') || '';
+                    this.editor.setContent(html)
+                }.bind(this));
+            }
+
+            this.disconnected = function () {
+                this.editor && this.editor.remove();
+            }
+
+            this.addEventListener('setconfig', function (event) {
+                var config = this.dashlet.config;
+                config.set('html', this.editor ? this.editor.getContent() : '');
+            }.bind(this))
+
+        })
+    </script>
+</j-dashlet-editor>
