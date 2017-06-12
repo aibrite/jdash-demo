@@ -21,7 +21,7 @@ gulp.task('deploy:clean', [], function (done) {
 
 
 gulp.task('deploy:app', ['deploy:clean'], function () {
-    return gulp.src(['./CNAME', './demos/**', './css/**', './index.html'], {
+    return gulp.src(['./CNAME', './demos/**', './css/**', './assets/**/*', './index.html'], {
         base: './'
     })
         .pipe(replace('node_modules', 'lib'))
