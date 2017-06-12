@@ -10,24 +10,23 @@
         "spec": ">=1.0.0 <2.0.0",
         "type": "range"
       },
-      "/Users/physioh/project/jdash/deploy/jdash-demo"
+      "/Users/utku/projects/aibrite/jdash/jdash-demo"
     ]
   ],
   "_from": "jdash-ui@>=1.0.0 <2.0.0",
-  "_id": "jdash-ui@1.0.1",
+  "_id": "jdash-ui@1.0.2",
   "_inCache": true,
-  "_installable": true,
   "_location": "/jdash-ui",
-  "_nodeVersion": "6.7.0",
+  "_nodeVersion": "6.9.1",
   "_npmOperationalInternal": {
     "host": "s3://npm-registry-packages",
-    "tmp": "tmp/jdash-ui-1.0.1.tgz_1496737088165_0.06720226956531405"
+    "tmp": "tmp/jdash-ui-1.0.2.tgz_1497091642856_0.024696884211152792"
   },
   "_npmUser": {
     "name": "tansu",
     "email": "accounts@aibrite.com"
   },
-  "_npmVersion": "3.10.3",
+  "_npmVersion": "3.10.8",
   "_phantomChildren": {},
   "_requested": {
     "raw": "jdash-ui@^1.0.0",
@@ -42,11 +41,11 @@
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/jdash-ui/-/jdash-ui-1.0.1.tgz",
-  "_shasum": "e3a6aa6c05e8f6d1ddb88892bb8cb72cc0e30072",
+  "_resolved": "https://registry.npmjs.org/jdash-ui/-/jdash-ui-1.0.2.tgz",
+  "_shasum": "5f946dc382f943c6e972669c4a60a5b6bcccf7d3",
   "_shrinkwrap": null,
   "_spec": "jdash-ui@^1.0.0",
-  "_where": "/Users/physioh/project/jdash/deploy/jdash-demo",
+  "_where": "/Users/utku/projects/aibrite/jdash/jdash-demo",
   "author": {
     "name": "Aibrite Inc."
   },
@@ -55,10 +54,10 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "e3a6aa6c05e8f6d1ddb88892bb8cb72cc0e30072",
-    "tarball": "https://registry.npmjs.org/jdash-ui/-/jdash-ui-1.0.1.tgz"
+    "shasum": "5f946dc382f943c6e972669c4a60a5b6bcccf7d3",
+    "tarball": "https://registry.npmjs.org/jdash-ui/-/jdash-ui-1.0.2.tgz"
   },
-  "gitHead": "1a6fc6dc8bb4da24edfb97a82926449131896b81",
+  "gitHead": "24773aa7e97ca6f0903b8a6986f2af0dbdf2dc8c",
   "license": "SEE LICENSE IN license.md",
   "main": "dist/jdash.min.js",
   "maintainers": [
@@ -74,5 +73,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "dist/definitions/index.d.ts",
-  "version": "1.0.1"
+  "version": "1.0.2"
 }
