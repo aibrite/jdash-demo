@@ -32,8 +32,8 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script src="../../lib/jdash-ui/dist/jdash.min.js"></script>
-    <link rel="import" href="../../lib/jdash-ui/dist/components/jdash.html">
+    <script src="../../../lib/jdash-ui/dist/jdash.min.js"></script>
+    <link rel="import" href="../../../lib/jdash-ui/dist/components/jdash.html">
 
     
 
@@ -44,6 +44,15 @@
     <link rel="import" href="dashlets/chart-dashlet.html">
     <link rel="import" href="dashlets/content-dashlet.html">
     <link rel="import" href="dashlets/rich-content.html">
+    <link rel="import" href="dashlets/hello-world.html">
+    <link rel="import" href="dashlets/stock-dashlet.html">
+    <link rel="import" href="dashlets/gauge-dashlet.html">
+    <link rel="import" href="dashlets/news-dashlet.html">
+    <link rel="import" href="dashlets/google-dashlet.html">
+    <link rel="import" href="dashlets/weather-dashlet.html">
+    <link rel="import" href="dashlets/locationmap-dashlet.html">
+    <link rel="import" href="dashlets/movie-dashlet.html">
+    <link rel="import" href="dashlets/stockquote-dashlet.html">
 
 </head>
 
@@ -115,7 +124,7 @@
 
                 <!-- /.row -->
                 <div class="row">
-                    <div class="j-row-padding" id="dashboard-edit-tools" style="display: none;">
+                    <div class="j-row-padding" id="dashboard-edit-tools">
                         <div class="j-half">
                             <button class="btn btn-default" btn-group="dashboard-view-mode" id="readonly">View</button>
                             <button class="btn <btn-default></btn-default>" id="startedit">Edit</button>
@@ -156,7 +165,7 @@
                 </div>
                 <!-- /.row -->
                 <div class="row">
-                    <j-dashboard id="mydashboard" j-view-mode="readonly" style="display: none" class="j-theme-dashboard">
+                    <j-dashboard id="mydashboard" j-view-mode="readonly" class="j-theme-dashboard">
                     </j-dashboard>
                     <j-provider></j-provider>
                 </div>
