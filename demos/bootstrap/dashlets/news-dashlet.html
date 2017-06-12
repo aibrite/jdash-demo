@@ -120,7 +120,7 @@
     <script>
         jdash.define(function () {
             this.initialized = function () {
-                var inputEl = this.querySelector('select');
+                var inputEl = this.querySelector('input');
                 inputEl.value = this.dashlet.config.get('source') || '';
             }
 
@@ -129,10 +129,7 @@
                 if (!value) {
                     alert('Set a valid value please!');
                     event.preventDefault();
-                } else {
-                    this.dashlet.config.set('source', value);
-                    this.dashlet.title = inputEl.options[inputEl.selectedIndex].text;
-                }
+                } else this.dashlet.config.set('source', value)
             })
         });
     </script>
