@@ -10,7 +10,7 @@
         "spec": ">=1.0.0 <2.0.0",
         "type": "range"
       },
-      "/Users/utku/projects/aibrite/jdash/jdash-demo"
+      "/Users/utku/projects/aibrite/jdash/deploy/jdash-demo"
     ]
   ],
   "_from": "jdash-ui@>=1.0.0 <2.0.0",
@@ -45,7 +45,7 @@
   "_shasum": "5f946dc382f943c6e972669c4a60a5b6bcccf7d3",
   "_shrinkwrap": null,
   "_spec": "jdash-ui@^1.0.0",
-  "_where": "/Users/utku/projects/aibrite/jdash/jdash-demo",
+  "_where": "/Users/utku/projects/aibrite/jdash/deploy/jdash-demo",
   "author": {
     "name": "Aibrite Inc."
   },
