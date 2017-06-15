@@ -30,7 +30,7 @@
     app.prototype.init = function () {
         var self = this;
         this.query = parseQuery(window.location.search);
-        this.username = 'tansu';
+        this.username = 'my-user';
         this.dashboard = document.querySelector('#mydashboard');
         this.dashletModules = jdash.DashletModule.getModules();
         this.dashletList = document.querySelector('#dashlet-list');
@@ -66,17 +66,16 @@
         this.viewModeChangeHandler(this.dashboard.getAttribute('j-view-mode') || 'readonly');
         this.dashboard.layout.makeDroppable('[j-type="j-dashlet-module"]', true, this.dashletList);
 
-        var url = 'https://app.jdash.io/jdash/api/v1';
-
+        //removeIf(noprod)
         window.jdash.Provider.init({
             userToken: function (cb) {
-                //tansu: Removed
-                //cb(null,"-");
                 getDemoToken(self.query.mail).then(function (token) {
                     cb(null, token);
                 }).catch(function (err) { cb(err) });
             }
         })
+        //endRemoveIf(noprod)
+
         this.go();
     }
 
@@ -187,6 +186,7 @@
         jdash.ThemeManager.getThemes().forEach(function (theme) {
             var op = document.createElement('a');
             op.textContent = theme.name;
+            op.style.cursor = "pointer"
             this.themesEl.appendChild(op);
             op.addEventListener('click', this.changeTheme.bind(this, theme))
         }.bind(this))
