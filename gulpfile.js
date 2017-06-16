@@ -21,16 +21,23 @@ gulp.task('deploy:clean', [], function (done) {
 
 
 gulp.task('deploy:app', ['deploy:clean'], function () {
-    return gulp.src(['./CNAME', './demos/**', './css/**', './assets/**/*', './index.html'], {
+    return gulp.src(['./CNAME', './demos/**', './css/**', './index.html'], {
         base: './'
     })
-        // .pipe(replace('node_modules', 'lib'))
+        .pipe(replace('node_modules', 'lib'))
         .pipe(gulp.dest(deploydir));
 })
 
 gulp.task('deploy:vendor', ['deploy:clean', 'deploy:install'], function () {
     return gulp.src(['./node_modules/jdash-ui/**'], { base: './node_modules' })
         .pipe(gulp.dest(deploydir + '/lib'))
+})
+
+gulp.task('deploy:assets', [], function () {
+    return gulp.src(['./assets/**/*'], {
+        base: './'
+    })
+        .pipe(gulp.dest(deploydir));
 })
 
 gulp.task('deploy:xcopy', ['deploy:app', 'deploy:vendor'], function () {
@@ -41,6 +48,6 @@ gulp.task('push', ['deploy'], function (done) {
     return ghpages.publish(path.join(__dirname, deploydir), done);
 })
 
-gulp.task('deploy', ['deploy:clean', 'deploy:install', 'deploy:xcopy'], function () {
+gulp.task('deploy', ['deploy:clean', 'deploy:install', 'deploy:xcopy', 'deploy:assets'], function () {
 
 })
