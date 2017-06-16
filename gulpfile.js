@@ -24,13 +24,13 @@ gulp.task('deploy:app', ['deploy:clean'], function () {
     return gulp.src(['./CNAME', './demos/**', './css/**', './assets/**/*', './index.html'], {
         base: './'
     })
-        //.pipe(replace('node_modules', 'lib'))
+        .pipe(replace('node_modules', 'lib'))
         .pipe(gulp.dest(deploydir));
 })
 
 gulp.task('deploy:vendor', ['deploy:clean', 'deploy:install'], function () {
     return gulp.src(['./node_modules/jdash-ui/**'], { base: './node_modules' })
-        .pipe(gulp.dest(deploydir + '/node_modules'))
+        .pipe(gulp.dest(deploydir + '/lib'))
 })
 
 gulp.task('deploy:xcopy', ['deploy:app', 'deploy:vendor'], function () {
