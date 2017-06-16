@@ -24,7 +24,7 @@ gulp.task('deploy:app', ['deploy:clean'], function () {
     return gulp.src(['./CNAME', './demos/**', './css/**', './assets/**/*', './index.html'], {
         base: './'
     })
-        .pipe(replace('node_modules', 'lib'))
+        // .pipe(replace('node_modules', 'lib'))
         .pipe(gulp.dest(deploydir));
 })
 
