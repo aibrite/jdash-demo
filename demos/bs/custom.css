@@ -83,3 +83,7 @@
     overflow: auto;
     margin-right: 5px;
 }
+
+.main-panel {
+    z-index:  initial !important;
+}
