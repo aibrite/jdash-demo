@@ -44,7 +44,7 @@ gulp.task('deploy:xcopy', ['deploy:app', 'deploy:vendor'], function () {
 
 })
 
-gulp.task('push', ['deploy'], function (done) {
+gulp.task('publish', ['deploy'], function (done) {
     return ghpages.publish(path.join(__dirname, deploydir), done);
 })
 
