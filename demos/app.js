@@ -219,21 +219,42 @@
         jdash.ThemeManager.setCurrentTheme(theme.name)
     }
 
+    // a check for different demo dashboards to suit for specified view
+    function isDemoDashboardSuitable(dashboard) {
+        if (dashboard.config && dashboard.config.demoDashboard) {
+            if (window.demoDashboardType == "jdash" && dashboard.config.bootstrapDefault) {
+                return false;
+            }
+
+            if (window.demoDashboardType == "bootstrap" && dashboard.config.jdashDefault) {
+                return false;
+            }
+        }
+
+
+        return true;
+    }
+
     app.prototype.createDashboardList = function (dashboards) {
         this.dashboardListContainer.innerHTML = '';
         dashboards.forEach(function (dashboard) {
+
             var el = document.importNode(this.dashboardListItemTemplate.content, true);
             var a = jdash.Helper.getFirstElementChild(el);
             a.addEventListener('click', this.loadDashboard.bind(this, dashboard, null));
 
             a.textContent = dashboard.title;
             a.setAttribute('dashboard-id', dashboard.id);
+
             this.dashboardListContainer.appendChild(a);
+
         }.bind(this))
     }
 
     app.prototype.loadDashboards = function () {
         return this.dashboard.provider.getMyDashboards().then(function (result) {
+            result.data = result.data.filter(function (dashboard) { return isDemoDashboardSuitable(dashboard); });
+
             this.createDashboardList(result.data);
             this.listingDashboards = result.data;
             return result;

@@ -104,7 +104,6 @@ $(document).ready(function () {
     app.prototype.go = function () {
         var self = this;
         this.loadDashboards().then(function (dashboards) {
-
             var model;
             if (self.query.dashboard) {
                 var model = dashboards.data.filter((function (item) {
@@ -232,6 +231,22 @@ $(document).ready(function () {
     //     jdash.ThemeManager.setCurrentTheme(theme.name)
     // }
 
+
+    function isDemoDashboardSuitable(dashboard) {
+        if (dashboard.config && dashboard.config.demoDashboard) {
+            if (window.demoDashboardType == "jdash" && dashboard.config.bootstrapDefault) {
+                return false;
+            }
+
+            if (window.demoDashboardType == "bootstrap" && dashboard.config.jdashDefault) {
+                return false;
+            }
+        }
+
+
+        return true;
+    }
+
     app.prototype.createDashboardList = function (dashboards) {
         this.dashboardListContainer.innerHTML = '';
         dashboards.forEach(function (dashboard) {
@@ -250,6 +265,7 @@ $(document).ready(function () {
 
     app.prototype.loadDashboards = function () {
         return this.dashboard.provider.getMyDashboards().then(function (result) {
+            result.data = result.data.filter(function (dashboard) { return isDemoDashboardSuitable(dashboard); });
             this.createDashboardList(result.data);
             this.listingDashboards = result.data;
             return result;
