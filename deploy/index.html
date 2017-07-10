@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Use JDash to add drag-drop dashboards to your application. JDash supports all major platforms including angular, bootstrap, nodejs and .net core.">
+    <meta name="author" content="AiBrite">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <!--SEO Opt-->
+    <meta name="distribution" content="web">
+    <link rel=”publisher” href=”http://aibrite.com”>
+
+    <meta name="keywords" content="javascript dashboard, user designable dashboard, mvc dashbord, asp.net dashboard,.net dashboard,asp.net dashboard controls,dot net dashboard,.net mobile dashboard,mobile dashboard,.net widget,asp.net widget">
+    <meta name="rating" content="general">
+    <meta name="revisit-after" content="3 day">
+    <meta name="robots" content="index,follow,all">
+
+    <meta property=”og:title” content=”Javascript Dashboard Framework for creating user designable dashboards”>
+    <meta property=”og:url” content=”http://jdash.io”>
+    <meta property="og:image" content="http://jdash.io/img/jdash-dashboard-drag-drop-finger.png">
+    <meta property=”og:description” content=”Use JDash to add drag-drop dashboards to your application. JDash supports all major
+        platforms including angular, bootstrap, nodejs and .net core.”>
+    <meta property="og:type" content="website">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Javascript Dashboard Framework for creating user designable dashboards">
+    <meta property="twitter:description" content="Use JDash to add drag-drop dashboards to your application. JDash supports all major platforms including angular, bootstrap, nodejs and .net core.">
+    <meta property="twitter:image" content="http://jdash.io/img/jdash-dashboard-drag-drop-finger.png">
+    <meta name="twitter:site" content="JDash">
+    <meta name="twitter:creator" content="JDash">
+    <meta name="twitter:url" content="http://demo.jdash.io/">
+
+    <title>JDash Demo</title>
+
+    <!--removeIf(noprod)-->
+    <link rel="stylesheet" href="../lib/jdash-ui/dist/components/jdash.css">
+    <!--endRemoveIf(noprod)-->
+
+    
+
+    
+
+    <link rel="stylesheet" href="css/demo.css">
+</head>
+
+<body>
+
+
+    <div class="j-margin-bottom">
+
+        <div class="j-container j-blue">
+            <h1 class="j-center">Select a theme</h1>
+        </div>
+
+        <div id="start-form" style="display: none" class="j-container j-animate-top">
+
+
+            <div class="j-card-4">
+
+                <form class="j-panel j-light-gray" name="form1" onsubmit="startTrial(); return false;">
+
+                    <h2 class="j-text-blue">Great! Now personalize your demo with your e-mail</h2>
+
+                    <p>
+                        <label>Your e-mail address</label></p>
+                    <input class="j-input j-border j-round-large" type="email" id="email" required>
+
+                    <div class="j-center j-padding">
+                        <button type="submit" id="start-btn" class="j-btn j-green">Start Demo</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="j-margin-top">
+
+            <div class="j-container">
+                <div id="jdashdemo" onclick="selectDemo('jdashdemo')" class="j-card-2 j-center demo-container j-blue j-card-6">
+
+                    <div class="j-container">
+                        <h2>Jdash Theme</h2>
+                    </div>
+                    <div class="j-container">
+                        <p>Demo uses colors and styles from jdash.css</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!--<div class="j-half">
+                <div id="bsdemo" onclick="selectDemo('bsdemo')" class="j-card-2 j-center demo-container">
+                    <div class="j-container">
+                        <h2>Bootstrap Theme</h2>
+                    </div>
+                    <div class="j-container">
+                        <p>Demo uses colors and styles from official Bootstrap.css</p>
+                    </div>
+                </div>
+            </div>-->
+
+            <!--<div class="j-third">
+                <div id="mtdemo" onclick="selectDemo('mtdemo')" class="j-card-2 j-center demo-container">
+                    <div class="j-container">
+                        <h2>Material Theme</h2>
+                    </div>
+                    <div class="j-container">
+                        <p>Demo uses colors and styles from official material.css</p>
+                    </div>
+                </div>
+            </div>-->
+
+        </div>
+
+    </div>
+    <div class="j-margin-bottom">
+        <div class="j-container">
+            <div id="bsdemo" class="j-card-2 j-center demo-container">
+                <div class="j-container">
+                    <h2 class="j-text-blue">Coming Soon!</h2>
+                    <h2>Bootstrap Theme</h2>
+                </div>
+                <div class="j-container">
+                    <p>Demo uses colors and styles from official Bootstrap.css</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+<script>
+    var selected = 'jdashdemo';
+
+    var demos = {
+        jdashdemo: 'jdash',
+        bsdemo: 'bs'
+    }
+    document.querySelector('#start-form').style.display = 'block';
+
+    function selectDemo(demo) {
+        // for (var k in demos) {
+        //     document.querySelector('#' + k).classList.remove('j-blue');
+        //     document.querySelector('#' + k).classList.remove('j-card-6');
+
+        // }
+        // document.querySelector('#' + demo).classList.add('j-blue');
+        // document.querySelector('#' + demo).classList.add('j-card-6');
+        selected = demo;
+        document.querySelector('#email').focus();
+
+    }
+
+    function startTrial() {
+        var mail = document.querySelector('#email').value;
+        console.log(mail.length);
+        if (mail.length) {
+            window.location = 'demos/' + demos[selected] + '/index.html?mail=' + encodeURIComponent(mail);
+        } else {
+            window.alert('E-mail address cannot be empty.');
+        }
+    }
+
+</script>
+
+<!--removeIf(noprod)-->
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-92563252-2', 'auto');
+    ga('send', 'pageview');
+
+</script>
+<!--endRemoveIf(noprod)-->
+
+</html>

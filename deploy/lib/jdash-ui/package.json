@@ -1,0 +1,77 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "jdash-ui@^1.0.3",
+        "scope": null,
+        "escapedName": "jdash-ui",
+        "name": "jdash-ui",
+        "rawSpec": "^1.0.3",
+        "spec": ">=1.0.3 <2.0.0",
+        "type": "range"
+      },
+      "/Users/utku/projects/aibrite/jdash/deploy/jdash-demo"
+    ]
+  ],
+  "_from": "jdash-ui@>=1.0.3 <2.0.0",
+  "_id": "jdash-ui@1.0.3",
+  "_inCache": true,
+  "_location": "/jdash-ui",
+  "_nodeVersion": "6.9.1",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/jdash-ui-1.0.3.tgz_1497878439991_0.9908001476433128"
+  },
+  "_npmUser": {
+    "name": "tansu",
+    "email": "accounts@aibrite.com"
+  },
+  "_npmVersion": "3.10.8",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "jdash-ui@^1.0.3",
+    "scope": null,
+    "escapedName": "jdash-ui",
+    "name": "jdash-ui",
+    "rawSpec": "^1.0.3",
+    "spec": ">=1.0.3 <2.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/jdash-ui/-/jdash-ui-1.0.3.tgz",
+  "_shasum": "46657eaf2fd2e1d3a63af13a54f5a4529a93534e",
+  "_shrinkwrap": null,
+  "_spec": "jdash-ui@^1.0.3",
+  "_where": "/Users/utku/projects/aibrite/jdash/deploy/jdash-demo",
+  "author": {
+    "name": "Aibrite Inc."
+  },
+  "dependencies": {},
+  "description": "jdash client library",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "46657eaf2fd2e1d3a63af13a54f5a4529a93534e",
+    "tarball": "https://registry.npmjs.org/jdash-ui/-/jdash-ui-1.0.3.tgz"
+  },
+  "gitHead": "24773aa7e97ca6f0903b8a6986f2af0dbdf2dc8c",
+  "license": "SEE LICENSE IN license.md",
+  "main": "dist/jdash.min.js",
+  "maintainers": [
+    {
+      "name": "tansu",
+      "email": "accounts@aibrite.com"
+    }
+  ],
+  "name": "jdash-ui",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "types": "dist/definitions/index.d.ts",
+  "version": "1.0.3"
+}

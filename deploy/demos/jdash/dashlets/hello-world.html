@@ -1,0 +1,53 @@
+<j-dashlet id="hello-world" title="Hello world!">
+    <template>
+        <!-- This will be the HTML content of your dashlet  -->
+        <h1></h1>
+    </template>
+    <script>
+        jdash.define(function () {
+
+            this.loadConfig = function () {
+                var h1 = this.querySelector('h1')
+                h1.textContent = this.config.get('header') || 'Hello World!';
+            }
+
+            this.initialized = function () {
+                // Dom is ready!
+
+            }
+
+            // this.addEventListener('configsaved', function (event) {
+            //     h1.textContent = this.config.get('header');
+            // })
+
+        })
+    </script>
+</j-dashlet>
+
+<j-dashlet-editor id="hello-world-editor">
+
+    <template>
+        <h3 style="margin: 10px;">Set a header value</h3>
+        <input style="margin: 10px;" type="text">
+    </template>
+
+    <script>
+        jdash.define(function () {
+
+            this.initialized = function () {
+                var inputEl = this.querySelector('input');
+                inputEl.value = this.dashlet.config.get('header') || '';
+            }
+
+            this.addEventListener('setconfig', function (event) {
+                var inputEl = this.querySelector('input'), value = inputEl.value;
+                if (!value) {
+                    alert('Set a valid value please!');
+                    event.preventDefault();
+                } else this.dashlet.config.set('header', value)
+            })
+
+        })
+    </script>
+
+</j-dashlet-editor>
