@@ -19,5 +19,12 @@
   "dependencies": {
     "jdash-ui": "^1.0.3"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gh-pages": "^1.0.0",
+    "gulp": "^3.9.1",
+    "gulp-merge": "^0.1.1",
+    "gulp-replace": "^0.6.1",
+    "gulp-shell": "^0.6.3"
+  }
 }
