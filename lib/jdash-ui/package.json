@@ -10,13 +10,12 @@
         "spec": ">=1.0.3 <2.0.0",
         "type": "range"
       },
-      "/Users/physioh/project/jdash/deploy/jdash-demo"
+      "/Users/utku/projects/aibrite/jdash/deploy/jdash-demo"
     ]
   ],
   "_from": "jdash-ui@>=1.0.3 <2.0.0",
   "_id": "jdash-ui@1.0.3",
   "_inCache": true,
-  "_installable": true,
   "_location": "/jdash-ui",
   "_nodeVersion": "6.9.1",
   "_npmOperationalInternal": {
@@ -46,7 +45,7 @@
   "_shasum": "46657eaf2fd2e1d3a63af13a54f5a4529a93534e",
   "_shrinkwrap": null,
   "_spec": "jdash-ui@^1.0.3",
-  "_where": "/Users/physioh/project/jdash/deploy/jdash-demo",
+  "_where": "/Users/utku/projects/aibrite/jdash/deploy/jdash-demo",
   "author": {
     "name": "Aibrite Inc."
   },
