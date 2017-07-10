@@ -1,76 +1,84 @@
 <style>
-    .video-container {
-        background-color: #000;
-        width: 100%;
-        padding-top: 75%;
-        position: relative;
-    }
+.video-container {
+    background-color: #000;
+    width: 100%;
+    padding-top: 75%; 
+    position: relative; 
+}
 
-    .video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-    }
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
 </style>
 <j-dashlet id="nasa-apod-dashlet" title="Astronomy of Day">
     <template>
         <div id="media-container"></div>
 
         <div style="padding: 16px">
-            <p id="loading">Loading from NASA ...</p>
-            <h3 id="title"></h3>
-            <p id="description"></p>
-        </div>
+<p id="loading">Loading from NASA ...</p>
+<h3 id="title"></h3>
+<p id="description"></p>
+</div>
 
-    </template>
-
-    <script>
-        jdash.define(function () {
-            this.initialized = function () {
-                var container = this.elementContent;
-                this.imgEl = container.querySelector('#photo')
-                this.titleEl = container.querySelector('#title')
-                this.descEl = container.querySelector('#description');
-                this.loadingEl = container.querySelector('#loading');
-                jdash.Http.get('https://api.nasa.gov/planetary/apod', {
-                    params: {
-                        api_key: 'c8Vu5GJI5oWoaCFaMrC5PANQ9bCKFrRtD7JStUTf'
-                    }
-                }).then(function (response) {
-                    this.loadingEl.remove();
-                    var data = response.data;
-                    var mediaType = data.media_type;
-                    var mediaContainer = container.querySelector('#media-container');
-                    mediaContainer.innerHTML = '';
-                    if (mediaType == 'video') {
-                        var videoContainer = document.createElement('div');
-                        videoContainer.classList.add('video-container');
-                        var el = document.createElement('iframe');
-                        el.classList.add('video');
-                        el.setAttribute('src', data.url);
-                        videoContainer.appendChild(el);
-                        mediaContainer.appendChild(videoContainer);
-                    } else {
-                        var img = document.createElement('img');
-                        img.style.width = '100%';
-                        img.setAttribute('src', data.url);
-                        mediaContainer.appendChild(img);
-                    }
-                    this.titleEl.textContent = this.title = data.title;
-                    this.descEl.textContent = data.explanation;
-                }.bind(this)).catch(function (error) {
-                    this.loadingEl.textContent = error.message;
-                }.bind(this));
-            }
-        });
-
-    </script>
-</j-dashlet>
+</template>
 
 <script>
+    jdash.define(function () {
+        this.initialized = function () {
+            var container = this.elementContent;
+            this.imgEl = container.querySelector('#photo')
+            this.titleEl = container.querySelector('#title')
+            this.descEl = container.querySelector('#description');
+            this.loadingEl = container.querySelector('#loading');
+            jdash.Http.get('https://api.nasa.gov/planetary/apod', {
+                params: {
+                    api_key: 'c8Vu5GJI5oWoaCFaMrC5PANQ9bCKFrRtD7JStUTf'
+                }
+            }).then(function (response) {
+                this.loadingEl.remove();
+                var data = response.data;
+                var mediaType = data.media_type;
+                var mediaContainer = container.querySelector('#media-container');
+                mediaContainer.innerHTML = '';
+                if (mediaType == 'video') {
+                    var videoContainer = document.createElement('div');
+                    videoContainer.classList.add('video-container');
+                    var el = document.createElement('iframe');
+                    el.classList.add('video');
+                    el.setAttribute('src', data.url);
+                    videoContainer.appendChild(el);
+                    mediaContainer.appendChild(videoContainer);
+                } else {
+                    var img = document.createElement('img');
+                    img.style.width = '100%';
+                    img.setAttribute('src', data.url);
+                    mediaContainer.appendChild(img);
+                }
+                this.titleEl.textContent = this.title = data.title;
+                this.descEl.textContent = data.explanation;
+            }.bind(this)).catch(function (error) {
+                this.loadingEl.textContent = error.message;
+            }.bind(this));
+        }
+    });
+</script>
+</j-dashlet>
+
+<j-dashlet-editor id="rss-dashlet-editor">
+    <template>
+        <h3>this is editor for rss-dashlet</h3>
+    </template>
+</j-dashlet-editor>
+
+<script>    
+
+
 
 </script>

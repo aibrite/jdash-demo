@@ -74,10 +74,10 @@
             </div>
         </div>
 
-        <div class="j-margin-top">
+        <div class="j-row-padding j-margin-top">
 
-            <div class="j-container">
-                <div id="jdashdemo" onclick="selectDemo('jdashdemo')" class="j-card-2 j-center demo-container j-blue j-card-6">
+            <div class="j-half">
+                <div id="jdashdemo" onclick="selectDemo('jdashdemo')" class="j-card-2 j-center demo-container">
 
                     <div class="j-container">
                         <h2>Jdash Theme</h2>
@@ -88,9 +88,7 @@
                 </div>
             </div>
 
-
-
-            <!--<div class="j-half">
+            <div class="j-half">
                 <div id="bsdemo" onclick="selectDemo('bsdemo')" class="j-card-2 j-center demo-container">
                     <div class="j-container">
                         <h2>Bootstrap Theme</h2>
@@ -99,7 +97,7 @@
                         <p>Demo uses colors and styles from official Bootstrap.css</p>
                     </div>
                 </div>
-            </div>-->
+            </div>
 
             <!--<div class="j-third">
                 <div id="mtdemo" onclick="selectDemo('mtdemo')" class="j-card-2 j-center demo-container">
@@ -115,19 +113,7 @@
         </div>
 
     </div>
-    <div class="j-margin-bottom">
-        <div class="j-container">
-            <div id="bsdemo" class="j-card-2 j-center demo-container">
-                <div class="j-container">
-                    <h2 class="j-text-blue">Coming Soon!</h2>
-                    <h2>Bootstrap Theme</h2>
-                </div>
-                <div class="j-container">
-                    <p>Demo uses colors and styles from official Bootstrap.css</p>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
 
 </body>
@@ -139,16 +125,16 @@
         jdashdemo: 'jdash',
         bsdemo: 'bs'
     }
-    document.querySelector('#start-form').style.display = 'block';
 
     function selectDemo(demo) {
-        // for (var k in demos) {
-        //     document.querySelector('#' + k).classList.remove('j-blue');
-        //     document.querySelector('#' + k).classList.remove('j-card-6');
+        for (var k in demos) {
+            document.querySelector('#' + k).classList.remove('j-blue');
+            document.querySelector('#' + k).classList.remove('j-card-6');
 
-        // }
-        // document.querySelector('#' + demo).classList.add('j-blue');
-        // document.querySelector('#' + demo).classList.add('j-card-6');
+        }
+        document.querySelector('#' + demo).classList.add('j-blue');
+        document.querySelector('#' + demo).classList.add('j-card-6');
+        document.querySelector('#start-form').style.display = 'block';
         selected = demo;
         document.querySelector('#email').focus();
 
