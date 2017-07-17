@@ -14,19 +14,19 @@
     ]
   ],
   "_from": "jdash-ui@>=1.0.3 <2.0.0",
-  "_id": "jdash-ui@1.0.3",
+  "_id": "jdash-ui@1.0.4",
   "_inCache": true,
   "_location": "/jdash-ui",
-  "_nodeVersion": "6.9.1",
+  "_nodeVersion": "6.11.0",
   "_npmOperationalInternal": {
     "host": "s3://npm-registry-packages",
-    "tmp": "tmp/jdash-ui-1.0.3.tgz_1497878439991_0.9908001476433128"
+    "tmp": "tmp/jdash-ui-1.0.4.tgz_1499774239813_0.3382637440226972"
   },
   "_npmUser": {
     "name": "tansu",
     "email": "accounts@aibrite.com"
   },
-  "_npmVersion": "3.10.8",
+  "_npmVersion": "3.10.10",
   "_phantomChildren": {},
   "_requested": {
     "raw": "jdash-ui@^1.0.3",
@@ -41,8 +41,8 @@
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/jdash-ui/-/jdash-ui-1.0.3.tgz",
-  "_shasum": "46657eaf2fd2e1d3a63af13a54f5a4529a93534e",
+  "_resolved": "https://registry.npmjs.org/jdash-ui/-/jdash-ui-1.0.4.tgz",
+  "_shasum": "84dbe0451afa305a4f638f17fb86303cf03e7934",
   "_shrinkwrap": null,
   "_spec": "jdash-ui@^1.0.3",
   "_where": "/Users/utku/projects/aibrite/jdash/deploy/jdash-demo",
@@ -54,10 +54,10 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "46657eaf2fd2e1d3a63af13a54f5a4529a93534e",
-    "tarball": "https://registry.npmjs.org/jdash-ui/-/jdash-ui-1.0.3.tgz"
+    "shasum": "84dbe0451afa305a4f638f17fb86303cf03e7934",
+    "tarball": "https://registry.npmjs.org/jdash-ui/-/jdash-ui-1.0.4.tgz"
   },
-  "gitHead": "24773aa7e97ca6f0903b8a6986f2af0dbdf2dc8c",
+  "gitHead": "9d24177539c00dbeefad2e5eff48d76256b5e59d",
   "license": "SEE LICENSE IN license.md",
   "main": "dist/jdash.min.js",
   "maintainers": [
@@ -73,5 +73,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "dist/definitions/index.d.ts",
-  "version": "1.0.3"
+  "version": "1.0.4"
 }

@@ -846,17 +846,21 @@
     j-dashlet-panel {
         display: block;
     }
-     
+    
     j-dashlet-panel [j-type="j-dashlet-container"] {
         background: #fff;
     }
-   
+    
     j-dashlet-panel [j-action]>.glyphicon {
         padding: 5px;
     }
-
-    [j-view-mode="dashletedit"]  j-dashlet-panel [j-type="j-dashlet-header"] {
+    
+    [j-view-mode="dashletedit"] j-dashlet-panel [j-type="j-dashlet-header"] {
         cursor: move;
+    }
+    
+    [j-type="j-dashlet-configuration-tools"] {
+        margin-top: 0.25em;
     }
 </style>
 <j-component id="j-dashlet-panel" delay-register="true">
