@@ -51,6 +51,16 @@
     color: white !important;
     font-weight: bold;
     width: 80%;
+    
+}
+
+#dashboard-list i, .each-title{
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+#dashboard-list i {
+    padding-left: 5px;
 }
 
 #dashboard-list li a {
@@ -60,14 +70,15 @@
 #dash-title {
     text-align: center;
     width: 80%;
-    padding-bottom: 10px;
+    padding: 10px;
     border-bottom: solid 1px white;
     margin-left: 20px;
 }
 
 #dashboard-list li :hover {
-    background: gray;
+    background: #324c77;
     cursor: pointer;
+    border-radius: 4px;
 }
 
 .dashlet-list {
