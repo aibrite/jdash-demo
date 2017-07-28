@@ -98,3 +98,33 @@
 .main-panel {
     z-index:  initial !important;
 }
+
+.introjs-tooltiptext {
+    color: steelblue;
+    font-size: 1.5em;
+}
+.introjs-tooltipbuttons a {
+  background: #465d82;
+    padding: 8px; 
+  font-size: 12px;
+  /* line-height: 22px;  */
+  font-weight: bold;
+  color: white;
+  /* text-decoration: none; */
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.introjs-tooltipbuttons a:hover {
+    background: lightgray;
+    color: black;
+}
+
+.introjs-disabled:hover {
+    cursor: not-allowed;
+}
+
+.introjs-helperLayer  {
+    opacity: 0.5
+}
