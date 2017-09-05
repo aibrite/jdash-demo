@@ -43,3 +43,33 @@
 .introjs-helperLayer  {
     opacity: 0.5
 }
+
+.custom-btn {
+    color: #ffffff; 
+    background-color: #E88C2A; 
+    border-color: #E88C2A; 
+    padding: 12px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+   
+.custom-btn:hover, .custom-btn:focus { 
+    color: #ffffff; 
+    background-color: #D47E33; 
+    border-color: #E88C2A; 
+} 
+
+@media screen and (max-width: 600px) {
+    #dashboard-edit-tools button {
+        margin-bottom: 10px;
+    }
+
+    #dashboard-edit-tools .j-half, #dashboard-edit-tools .j-right {
+        text-align: center !important;
+        float: none !important;
+    }
+
+    .general-title {
+        text-align: center;
+    }
+}
