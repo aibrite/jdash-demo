@@ -77,7 +77,7 @@
         <div class="j-margin-top">
 
             <div class="j-half">
-                <div id="jdashdemo" onclick="selectDemo('jdashdemo')" class="j-card-2 j-center demo-container j-blue j-card-6">
+                <div id="jdashdemo" onclick="selectDemo('jdashdemo')" class="j-card-2 j-center demo-container">
 
                     <div class="j-container">
                         <h2>Jdash Theme</h2>
@@ -141,7 +141,7 @@
         jdashdemo: 'jdash',
         bsdemo: 'bs'
     }
-    document.querySelector('#start-form').style.display = 'block';
+    // document.querySelector('#start-form').style.display = 'block';
 
     function selectDemo(demo) {
         for (var k in demos) {
@@ -151,6 +151,7 @@
         }
         document.querySelector('#' + demo).classList.add('j-blue');
         document.querySelector('#' + demo).classList.add('j-card-6');
+        document.querySelector('#start-form').style.display = 'block';
         selected = demo;
         document.querySelector('#email').focus();
 
