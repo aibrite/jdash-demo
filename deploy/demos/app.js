@@ -1,3 +1,16 @@
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		clearTimeout(timeout);
+		timeout = setTimeout(function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		}, wait);
+		if (immediate && !timeout) func.apply(context, args);
+	};
+}
+
 (function (window) {
 
     function parseQuery(qstr) {
@@ -156,6 +169,11 @@
     }
 
     app.prototype.createDashletModuleEls = function () {
+        this.dashletModules.sort(function (a, b) {
+            var firstOrder = parseInt(a.attributes["data-order"].value);
+            var secondOrder = parseInt(b.attributes["data-order"].value);
+            return firstOrder - secondOrder;
+        })
         for (var i = 0; i < this.dashletModules.length; i++) {
             var module = this.dashletModules[i];
             var el = document.importNode(this.dashletListItemTemplate.content, true);
@@ -287,8 +305,10 @@
                 console.log('Dashboard created with id:' + result.id);
                 model.id = result.id;
                 result.meta && (model.meta = result.meta);
+
                 this.loadDashboards();
                 this.loadDashboard(model);
+                startNewDashboardIntro && startNewDashboardIntro();
             }.bind(this)).catch(function (err) {
                 alert('Unable to create dashboard:' + err.message)
             }.bind(this))

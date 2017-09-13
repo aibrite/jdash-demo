@@ -1,14 +1,17 @@
-<j-dashlet id="hello-world" title="Hello world!">
+<j-dashlet id="hello-world" title="Hello world!" data-order="1">
     <template>
+        <div class="j-padding">
+            <h1></h1>
+            <span>This is the Hello World for Jdash. You can use this as a starting point for your dashlets.</span>
+        </div>
         <!-- This will be the HTML content of your dashlet  -->
-        <h1></h1>
     </template>
     <script>
         jdash.define(function () {
 
             this.loadConfig = function () {
                 var h1 = this.querySelector('h1')
-                h1.textContent = this.config.get('header') || 'Hello World!';
+                h1.textContent = this.config.get('header') || 'Welcome!';
             }
 
             this.initialized = function () {
@@ -27,7 +30,7 @@
 <j-dashlet-editor id="hello-world-editor">
 
     <template>
-        <h3 style="margin: 10px;">Set a header value</h3>
+        <h3 style="margin: 10px;">Sample setting</h3>
         <input style="margin: 10px;" type="text">
     </template>
 
@@ -36,7 +39,7 @@
 
             this.initialized = function () {
                 var inputEl = this.querySelector('input');
-                inputEl.value = this.dashlet.config.get('header') || '';
+                inputEl.value = this.dashlet.config.get('header') || 'Welcome!';
             }
 
             this.addEventListener('setconfig', function (event) {
