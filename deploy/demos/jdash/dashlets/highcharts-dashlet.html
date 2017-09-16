@@ -133,28 +133,25 @@
 <j-dashlet-editor id="highcharts-dashlet-editor">
 
     <template>
-        <p></p>
-        <input type="text" class="j-input j-animate-input" id="title" required placeholder="title" />
-        <p></p>
-        <span class="form-control">Data Presets</span>
-        <select id="presets" class="j-select">
-            <option value="" disabled selected>Choose your presets</option>
-        </select>
-        <p></p>
-        <span class="form-control">Chart Theme</span>
-        <select id="theme" class="j-select">
-            <option value="default">Default</option>
-            <option value="green">Green</option>
-            <option value="gray">Gray</option>
-            <option value="blue">Blue</option>    
-        </select>
+        <div class="j-container">
+            <span class="form-control">Data Presets</span>
+            <select id="presets" class="j-select">
+                    <option value="" disabled selected>Choose your presets</option>
+                </select>
+            <span class="form-control">Chart Theme</span>
+            <select id="theme" class="j-select">
+                    <option value="default">Default</option>
+                    <option value="green">Green</option>
+                    <option value="gray">Gray</option>
+                    <option value="blue">Blue</option>    
+                </select>
+        </div>
     </template>
 
     <script>
         jdash.define(function () {
 
-            this.initialized = function () {
-                this.titleInput = this.querySelector('#title');
+            this.initialized = function () { 
                 this.presetsInput = this.querySelector('#presets');
                 this.themeInput = this.querySelector('#theme');
 
@@ -169,12 +166,11 @@
                 var self = this;
 
 
-                var theme = this.dashlet.config.get("theme") || "";
-                var preset = this.dashlet.config.get("preset") || "";
+                var theme = this.dashlet.config.get("theme") || "default";
+                var preset = this.dashlet.config.get("preset") || "Combination chart";
 
                 self.presetsInput.value = preset;
-                self.themeInput.value = theme;
-                self.titleInput.value = this.dashlet.title;
+                self.themeInput.value = theme; 
 
 
 
@@ -182,18 +178,17 @@
 
 
             this.addEventListener('setconfig', function (event) {
-                var title = this.titleInput.value;
+         
                 var preset = this.presetsInput.value;
                 var theme = this.themeInput.value;
-                if (!title || !preset || !theme) {
+                if ( !preset || !theme) {
                     alert('Set a valid value please!');
                     event.preventDefault();
                     return
                 }
 
                 this.dashlet.config.set('preset', preset);
-                this.dashlet.config.set('theme', theme);
-                this.dashlet.setAttribute('title', title);
+                this.dashlet.config.set('theme', theme); 
             })
 
         })
