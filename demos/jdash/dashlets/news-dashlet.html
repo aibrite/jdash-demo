@@ -47,13 +47,7 @@
         margin-bottom: 10px;
         width: 400px;
     }
-
-    .newsHeader {
-        margin-left: 10px;
-        margin-bottom: 10px;
-        font-weight: bold;
-        margin-top: 10px;
-    }
+ 
 
     j-news-editor select {
         margin: 6px 10px 10px !important;
@@ -109,19 +103,20 @@
 </j-dashlet>
 <j-dashlet-editor id="j-news-editor">
     <template>
-        <div class="newsHeader">News Configuration</div>
-        <select>
-  <option value="cnn">CNN</option>
-  <option value="techcrunch">Tech Crunch</option>
-  <option value="the-next-web">The Next Web</option>
-</select>
-
+        <div class="j-container">
+            <span>News Configuration</span>
+            <select>
+                <option value="cnn">CNN</option>
+                <option value="techcrunch">Tech Crunch</option>
+                <option value="the-next-web">The Next Web</option>
+            </select>
+        </div>
     </template>
     <script>
         jdash.define(function () {
             this.initialized = function () {
                 var inputEl = this.querySelector('select');
-                inputEl.value = this.dashlet.config.get('source') || '';
+                inputEl.value = this.dashlet.config.get('source') || 'techcrunch';
             }
 
             this.addEventListener('setconfig', function (event) {
