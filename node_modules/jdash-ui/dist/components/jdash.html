@@ -75,14 +75,14 @@
 
         <template j-type="j-zone-editor" class="j-center j-panel j-border  j-theme-l5 j-padding-top">
 
-            <a j-action="movezone" j-action-params="direction:prev" class="j-btn j-margin-bottom  j-round-large  j-theme-l5 "><i class="fa fa-arrow-left"></i></a>
-            <a j-action="movezone" j-action-params="direction:next" class="j-btn j-margin-bottom j-round-large  j-theme-l5 "><i class="fa fa-arrow-right"></i></a>
-            <a j-action="resizezone" j-action-params="inc:1" class="j-btn j-margin-bottom j-round-large  j-theme-l5 "><i class="fa fa-expand"></i></a>
-            <a j-action="resizezone" j-action-params="inc:-1" class="j-btn j-margin-bottom j-round-large  j-theme-l5 "><i class="fa fa-compress"></i></a>
+            <a j-action="movezone" title="Move Left" j-action-params="direction:prev" class="j-btn j-margin-bottom  j-round-large  j-theme-l5 "><i class="fa fa-arrow-left"></i></a>
+            <a j-action="movezone" title="Move Right" j-action-params="direction:next" class="j-btn j-margin-bottom j-round-large  j-theme-l5 "><i class="fa fa-arrow-right"></i></a>
+            <a j-action="resizezone" title="Increse Width" j-action-params="inc:1" class="j-btn j-margin-bottom j-round-large  j-theme-l5 "><i class="fa fa-expand"></i></a>
+            <a j-action="resizezone" title="Decrease Width" j-action-params="inc:-1" class="j-btn j-margin-bottom j-round-large  j-theme-l5 "><i class="fa fa-compress"></i></a>
 
-            <a j-action="makezonegroup" class="j-btn j-margin-bottom  j-round-large j-theme-l5 "><i class="fa fa-th-large"></i></a>
-            <a j-action="clonezone" class="j-btn j-margin-bottom j-round-large  j-theme-l5 "><i class="fa fa-clone"></i></a>
-            <a j-action="removezone" class="j-btn j-margin-bottom j-round-large  j-theme-l5 "><i class="fa fa-trash"></i></a>
+            <a j-action="makezonegroup" title="New Subzone" class="j-btn j-margin-bottom  j-round-large j-theme-l5 "><i class="fa fa-th-large"></i></a>
+            <a j-action="clonezone" title="Clone" class="j-btn j-margin-bottom j-round-large  j-theme-l5 "><i class="fa fa-clone"></i></a>
+            <a j-action="removezone" title="Delete Zone" class="j-btn j-margin-bottom j-round-large  j-theme-l5 "><i class="fa fa-trash"></i></a>
 
         </template>
 
@@ -93,12 +93,12 @@
             </div>
 
             <div class="j-container j-layout-col j-layout-middle j-right-align">
-                <button j-action="movesection" j-action-params="direction:prev" class="j-btn j-round-large j-theme-l5"><i class="fa fa-arrow-up"></i></button>
-                <button j-action="movesection" j-action-params="direction:next" class="j-btn j-round-large j-theme-l5"><i class="fa fa-arrow-down"></i></button>
-                <button j-action="clonesection" class="j-btn  j-round-large j-theme-l5"><i class="fa fa-clone"></i></button>
-                <button j-action="editsectiontitle" class="j-btn  j-round-large j-theme-l5"><i class="fa fa-pencil-square-o"></i></button>
-                <button j-action="resetsection" class="j-btn  j-round-large j-theme-l5"><i class="fa fa-rotate-left"></i></button>
-                <button j-action="removesection" class="j-btn j-round-large j-theme-l5"><i class="fa fa-trash"></i></button>
+                <button j-action="movesection" title="Move Up" j-action-params="direction:prev" class="j-btn j-round-large j-theme-l5"><i class="fa fa-arrow-up"></i></button>
+                <button j-action="movesection" title="Move Down" j-action-params="direction:next" class="j-btn j-round-large j-theme-l5"><i class="fa fa-arrow-down"></i></button>
+                <button j-action="clonesection" title="Clone" class="j-btn  j-round-large j-theme-l5"><i class="fa fa-clone"></i></button>
+                <button j-action="editsectiontitle" title="Edit Title" class="j-btn  j-round-large j-theme-l5"><i class="fa fa-pencil-square-o"></i></button>
+                <button j-action="resetsection" title="Reset" class="j-btn  j-round-large j-theme-l5"><i class="fa fa-rotate-left"></i></button>
+                <button j-action="removesection" title="Delete Section" class="j-btn j-round-large j-theme-l5"><i class="fa fa-trash"></i></button>
 
 
 
@@ -118,14 +118,14 @@
             <div class="j-container j-layout-col j-layout-middle j-right-align">
                 <div class="j-show-inline-block">
                     <div class="j-btn-group j-show-inline-block">
-                        <button j-action="movezonegroup" j-action-params="direction:prev" class="j-btn  j-theme-l5"><i class="fa fa-arrow-up"></i></button>
-                        <button j-action="movezonegroup" j-action-params="direction:next" class="j-btn  j-theme-l5"><i class="fa fa-arrow-down"></i></button>
+                        <button j-action="movezonegroup" title="Move Up" j-action-params="direction:prev" class="j-btn  j-theme-l5"><i class="fa fa-arrow-up"></i></button>
+                        <button j-action="movezonegroup" title="Move Down" j-action-params="direction:next" class="j-btn  j-theme-l5"><i class="fa fa-arrow-down"></i></button>
                     </div>
 
                     <div class="j-btn-group j-show-inline-block">
-                        <button j-action="clonezonegroup" class="j-btn j-theme-l5"><i class="fa fa-clone"></i></button>
-                        <button j-action="editzonegrouptitle" class="j-btn  j-theme-l5"><i class="fa fa-pencil-square-o"></i></button>
-                        <button j-action="removezonegroup" class="j-btn  j-theme-l5"><i class="fa fa-trash"></i></button>
+                        <button j-action="clonezonegroup" title="Clone" class="j-btn j-theme-l5"><i class="fa fa-clone"></i></button>
+                        <button j-action="editzonegrouptitle" title="Edit Title" class="j-btn  j-theme-l5"><i class="fa fa-pencil-square-o"></i></button>
+                        <button j-action="removezonegroup" title="Delete Zone Group" class="j-btn  j-theme-l5"><i class="fa fa-trash"></i></button>
                     </div>
                 </div>
             </div>
@@ -161,10 +161,10 @@
                 </h4>
             </template>
             <template j-type="j-dashlet-configuration-tools" class="j-padding j-center j-theme-d1">
-                <a j-action="configuredashlet" class="j-btn  j-theme-action"><i class="fa fa-pencil"></i></a>
-                <a j-action="setdashlettitle" class="j-btn  j-theme-action"><i class="fa fa-font"></i></a>
-                <a j-action="clonedashlet" class="j-btn  j-theme-action"><i class="fa fa-clone"></i> </a>
-                <a j-action="removedashlet" class="j-btn j-theme-action"><i class="fa fa-trash"></i> </a>
+                <a j-action="configuredashlet" title="Configure" class="j-btn  j-theme-action"><i class="fa fa-pencil"></i></a>
+                <a j-action="setdashlettitle" title="Set title" class="j-btn  j-theme-action"><i class="fa fa-font"></i></a>
+                <a j-action="clonedashlet" title="Clone" class="j-btn  j-theme-action"><i class="fa fa-clone"></i> </a>
+                <a j-action="removedashlet" title="Delete" class="j-btn j-theme-action"><i class="fa fa-trash"></i> </a>
             </template>
             <div j-type="j-dashlet-container">
                 <slot name="body"></slot>

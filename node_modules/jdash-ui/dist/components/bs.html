@@ -765,12 +765,25 @@
     <template>
         <template j-type="j-layout-content">
             <div j-persist="">
+                <section j-persist="" title="First Section" class="container-fluid" j-type="j-layout-section">
+                    <div j-persist="" j-type="j-layout-section-header">
+                        <h2 j-persist="" j-type="j-layout-section-title">First section</h2>
+                    </div>
+                    <div j-persist="" j-type="j-dashlet-zone-group">
+                        <div j-persist="" j-dashlet-zone="" j-weight="2">
+                        </div>
+                        <div j-persist="" j-dashlet-zone="" j-weight="2">
+                        </div>
+                    </div>
+                </section>
                 <section j-persist="" title="Another section" class="container-fluid" j-type="j-layout-section">
                     <div j-persist="" j-type="j-layout-section-header">
                         <h2 j-persist="" j-type="j-layout-section-title">Another section</h2>
                     </div>
                     <div j-persist="" j-type="j-dashlet-zone-group">
-                        <div j-persist="" j-dashlet-zone="">
+                        <div j-persist="" j-dashlet-zone="" j-weight="3">
+                        </div>
+                        <div j-persist="" j-dashlet-zone="" j-weight="2">
                         </div>
                     </div>
                 </section>
@@ -782,13 +795,13 @@
         </template>
 
         <template j-type="j-zone-editor" class="text-center j-padding-bottom j-margin-top j-border j-pad">
-            <button type="button" j-action="movezone" j-action-params="direction:prev" class="btn btn-default j-theme-action "><i class="glyphicon glyphicon-arrow-left"></i></button>
-            <button type="button" j-action="movezone" j-action-params="direction:next" class="btn btn-default j-theme-action "><i class="glyphicon glyphicon-arrow-right"></i></button>
-            <button type="button" j-action="resizezone" j-action-params="inc:1" class="btn btn-default j-theme-action "><i class="glyphicon glyphicon-resize-full"></i></button>
-            <button type="button" j-action="resizezone" j-action-params="inc:-1" class="btn btn-default j-theme-action "><i class="glyphicon glyphicon-resize-small"></i></button>
-            <button type="button" j-action="makezonegroup" class="btn btn-default j-theme-action "><i class="glyphicon glyphicon-modal-window"></i></button>
-            <button type="button" j-action="clonezone" class="btn btn-default j-theme-action "><i class="glyphicon glyphicon-copyright-mark"></i></button>
-            <button type="button" j-action="removezone" class="btn btn-default j-theme-action "><i class="glyphicon glyphicon-remove-sign"></i></button>
+            <button type="button" title="Move Left" j-action="movezone" j-action-params="direction:prev" class="btn btn-default j-theme-action "><i class="glyphicon glyphicon-arrow-left"></i></button>
+            <button type="button" title="Move Right" j-action="movezone" j-action-params="direction:next" class="btn btn-default j-theme-action "><i class="glyphicon glyphicon-arrow-right"></i></button>
+            <button type="button" title="Increase Width" j-action="resizezone" j-action-params="inc:1" class="btn btn-default j-theme-action "><i class="glyphicon glyphicon-resize-full"></i></button>
+            <button type="button" title="Decrease Width" j-action="resizezone" j-action-params="inc:-1" class="btn btn-default j-theme-action "><i class="glyphicon glyphicon-resize-small"></i></button>
+            <button type="button" title="New Subzone" j-action="makezonegroup" class="btn btn-default j-theme-action "><i class="glyphicon glyphicon-modal-window"></i></button>
+            <button type="button" title="Clone" j-action="clonezone" class="btn btn-default j-theme-action "><i class="glyphicon glyphicon-copyright-mark"></i></button>
+            <button type="button" title="Delete Zone" j-action="removezone" class="btn btn-default j-theme-action "><i class="glyphicon glyphicon-remove-sign"></i></button>
         </template>
 
         <template j-type="j-section-editor" class="row j-pad j-border j-margin-top j-editor-pane j-theme">
@@ -796,12 +809,12 @@
                 <h4 j-type="j-layout-section-title"></h4>
             </div>
             <div class="pull-right ">
-                <button type="button" j-action="movesection" j-action-params="direction:prev" class="btn btn-default j-theme-action"><i class="glyphicon glyphicon-arrow-up"></i></button>
-                <button type="button" j-action="movesection" j-action-params="direction:next" class="btn btn-default j-theme-action"><i class="glyphicon glyphicon-arrow-down"></i></button>
-                <button type="button" j-action="clonesection" class="btn btn-default j-theme-action"><i class="glyphicon glyphicon-unchecked"></i></button>
-                <button type="button" j-action="editsectiontitle" class="btn btn-default j-theme-action"><i class="glyphicon glyphicon-edit"></i></button>
-                <button type="button" j-action="resetsection" class="btn btn-default j-theme-action"><i class="glyphicon glyphicon-refresh"></i></button>
-                <button type="button" j-action="removesection" class="btn btn-default j-theme-action"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                <button type="button" title="Move Left" j-action="movesection" j-action-params="direction:prev" class="btn btn-default j-theme-action"><i class="glyphicon glyphicon-arrow-up"></i></button>
+                <button type="button" title="Move Right" j-action="movesection" j-action-params="direction:next" class="btn btn-default j-theme-action"><i class="glyphicon glyphicon-arrow-down"></i></button>
+                <button type="button" title="Clone" j-action="clonesection" class="btn btn-default j-theme-action"><i class="glyphicon glyphicon-unchecked"></i></button>
+                <button type="button" title="Edit Title" j-action="editsectiontitle" class="btn btn-default j-theme-action"><i class="glyphicon glyphicon-edit"></i></button>
+                <button type="button" title="Reset" j-action="resetsection" class="btn btn-default j-theme-action"><i class="glyphicon glyphicon-refresh"></i></button>
+                <button type="button" title="Delete Section" j-action="removesection" class="btn btn-default j-theme-action"><i class="glyphicon glyphicon-remove-sign"></i></button>
             </div>
 
 
@@ -814,11 +827,11 @@
             </div>
 
             <div class="container-fluid pull-right">
-                <button type="button" j-action="movezonegroup" j-action-params="direction:prev" class="btn btn-default j-theme-action"><i class="glyphicon glyphicon-arrow-up"></i></button>
-                <button type="button" j-action="movezonegroup" j-action-params="direction:next" class="btn btn-defaul j-theme-action"><i class="glyphicon glyphicon-arrow-down"></i></button>
-                <button type="button" j-action="clonezonegroup" class="btn btn-default j-theme-action"><i class="glyphicon glyphicon-unchecked"></i></button>
-                <button type="button" j-action="editzonegrouptitle" class="btn btn-default j-theme-action"><i class="glyphicon glyphicon-edit"></i></button>
-                <button type="button" j-action="removezonegroup" class="btn btn-default j-theme-action"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                <button type="button" title="Move Up" j-action="movezonegroup" j-action-params="direction:prev" class="btn btn-default j-theme-action"><i class="glyphicon glyphicon-arrow-up"></i></button>
+                <button type="button" title="Move Down" j-action="movezonegroup" j-action-params="direction:next" class="btn btn-defaul j-theme-action"><i class="glyphicon glyphicon-arrow-down"></i></button>
+                <button type="button" title="Clone" j-action="clonezonegroup" class="btn btn-default j-theme-action"><i class="glyphicon glyphicon-unchecked"></i></button>
+                <button type="button" title="Edit Title" j-action="editzonegrouptitle" class="btn btn-default j-theme-action"><i class="glyphicon glyphicon-edit"></i></button>
+                <button type="button" title="Delete Zone Group" j-action="removezonegroup" class="btn btn-default j-theme-action"><i class="glyphicon glyphicon-remove-sign"></i></button>
             </div>
         </template>
 
@@ -846,19 +859,19 @@
     j-dashlet-panel {
         display: block;
     }
-    
+
     j-dashlet-panel [j-type="j-dashlet-container"] {
         background: #fff;
     }
-    
+
     j-dashlet-panel [j-action]>.glyphicon {
         padding: 5px;
     }
-    
+
     [j-view-mode="dashletedit"] j-dashlet-panel [j-type="j-dashlet-header"] {
         cursor: move;
     }
-    
+
     [j-type="j-dashlet-configuration-tools"] {
         margin-top: 0.25em;
     }
@@ -870,10 +883,10 @@
                 <h3 class="panel-title" j-bind="title" j-bind-default="&nbsp;" j-type="j-dashlet-title"></h3>
             </div>
             <template j-type="j-dashlet-configuration-tools" class="text-center dashlet-action j-theme-l1">
-                <button type="button" class="btn btn-default j-theme-action" j-action="configuredashlet"><span class="glyphicon glyphicon-pencil"></span></button>
-                <button type="button" class="btn btn-default j-theme-action" j-action="setdashlettitle"><span class="glyphicon glyphicon-font"></span></button>
-                <button type="button" class="btn btn-default j-theme-action" j-action="clonedashlet"><span class="glyphicon glyphicon-tint"></span></button>
-                <button type="button" class="btn btn-default j-theme-action" j-action="removedashlet"><span class="glyphicon glyphicon-remove"></span></button>
+                <button type="button" title="Configure" class="btn btn-default j-theme-action" j-action="configuredashlet"><span class="glyphicon glyphicon-pencil"></span></button>
+                <button type="button" title="Set title" class="btn btn-default j-theme-action" j-action="setdashlettitle"><span class="glyphicon glyphicon-font"></span></button>
+                <button type="button" title="Clone" class="btn btn-default j-theme-action" j-action="clonedashlet"><span class="glyphicon glyphicon-tint"></span></button>
+                <button type="button" title="Delete" class="btn btn-default j-theme-action" j-action="removedashlet"><span class="glyphicon glyphicon-remove"></span></button>
             </template>
             <div class="panel-body j-theme-d1" j-type="j-dashlet-container">
                 <slot name="body"></slot>
