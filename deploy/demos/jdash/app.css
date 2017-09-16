@@ -1,5 +1,3 @@
-
-
 .dashlet-list {
     white-space: nowrap;
     width:100%;
@@ -42,4 +40,52 @@
 
 .introjs-helperLayer  {
     opacity: 0.5
+}
+
+.custom-btn {
+    color: #ffffff; 
+    background-color: #87CB16; 
+    border-color: #87CB16; 
+    padding: 14px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+   
+.custom-btn:hover, .custom-btn:focus { 
+    color: #ffffff; 
+    background-color: #4cae4c; 
+    border-color: #4cae4c; 
+} 
+
+@media screen and (max-width: 600px) {
+    #dashboard-edit-tools button {
+        margin-bottom: 10px;
+    }
+
+    #dashboard-edit-tools .j-half, #dashboard-edit-tools .j-right {
+        text-align: center !important;
+        float: none !important;
+    }
+
+    .general-title {
+        text-align: center;
+    }
+}
+
+
+#dashboard-list > a {
+    display: block;
+    padding: 8px 16px!important;
+}
+
+#dashboard-list > a:hover {
+    background-color: rgba(100,100,100,0.2);
+}
+
+.introjs-donebutton , .introjs-donebutton:focus {
+    background: green !important;
+    color: white !important;
+    box-shadow: none !important;
+    font-size: 14px !important;
+    text-shadow: none !important;
 }

@@ -1,16 +1,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
 
-<j-dashlet id="rss-dashlet" title="Angular Rss Dashlet">
+<j-dashlet id="rss-dashlet" title="Angular Sample" data-order="7">
     <template>
-        <img src="/assets/img/img_fjords.jpg" alt="Norway" style="width:100%" />
-
-        <div ng-controller="MainCtrl as $ctrl">
-            <h1 style="color: aqua; margin-left: 10px;">Angular RSS Dashlet</h1>
-            <h2 style="color:cornflowerblue; margin-left: 10px;">{{$ctrl.myfoo|number:2}}</h2>
+        <div class="j-padding">
+            <div>
+                <h3>Jdash supports any JavaScript library inside your dashlets. This is a demo of Angular Javascript Library.</h3>
+            </div>
+            <div ng-controller="MainCtrl as $ctrl">
+                <h1 style="margin-left: 10px;">Using $timeout to display a random value.</h1>
+                <h2 style="color:cornflowerblue; margin-left: 10px;">{{$ctrl.myfoo|number:2}}</h2>
+            </div>
         </div>
-
-
-
     </template>
 
     <script>
@@ -21,11 +21,11 @@
             })
 
             this.configurationChanged = function (key, oldVal, newVal) {
-                debugger;
+
             }
 
             this.positionChanged = function (key, oldVal, newVal) {
-                debugger;
+
             }
 
             // this.configLoaded = function (oldVal, newVal) {
