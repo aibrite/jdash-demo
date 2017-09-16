@@ -82,9 +82,11 @@
 
             <div class="sidebar-wrapper">
                 <div class="logo">
-                    <h2 class="simple-text" data-step="1" data-intro="Welcome to JDash Bootstrap Demo! Here is a simple tour for you!" data-position="right">
+                    <h2 class="simple-text" data-step="1" data-intro="Welcome to JDash Bootstrap Demo! We have already created a sample Dashboard for you!"
+                        data-position="right">
                         JDash Bootstrap
                     </h2>
+                    <a href="http://jdash.io/#pricing" target="_blank" class="btn btn-success btn-fill center-btn"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Purchase JDash</a>
                 </div>
 
                 <ul class="nav">
@@ -95,7 +97,7 @@
                     </a>
                     </li>-->
                     <li>
-                        <h3 id="dash-title" data-step="2" data-intro="We have already created a sample dashboard for you!" data-position="right">Dashboards</h3>
+                        <h3 id="dash-title">Dashboards</h3>
                     </li>
                     <li id="dashboard-list">
                         <template id="dashboard-list-item-template">
@@ -124,11 +126,11 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                        <h1 class="navbar-brand" data-step="7" data-intro="It is that simple! Enjoy JDash!"><i class="fa fa-dashboard"></i> <b id="dashboard-title" style="margin-left: 5px;">Dashboard</b></h1>
+                        <h1 class="navbar-brand" data-step="3" data-intro="Also feel free to experiment with Dashboard Controls! Enjoy JDash!"><i class="fa fa-dashboard"></i> <b id="dashboard-title" style="margin-left: 5px;">Dashboard</b></h1>
                     </div>
                     <div class="collapse navbar-collapse">
 
-                        <ul class="nav navbar-nav navbar-right" data-step="6" data-intro="You can always create a new dashboard here and it will be added to your dashboards list on the left!">
+                        <ul class="nav navbar-nav navbar-right">
                             <li><button id="create-dashboard-btn" class="btn btn-primary btn-fill" href="#"><i class="fa fa-plus"></i> Create New Dashboard</button></li>
                         </ul>
 
@@ -143,8 +145,7 @@
 
 
                     <div class="row">
-                        <div class="col-xs-12" id="dashboard-edit-tools" data-step="3" data-intro="This is your control panel. You can edit and toggle your dashlets here, add new columns, change columns, create groups and sections or simply view or delete your dashboard!"
-                            data-position="bottom">
+                        <div class="col-xs-12" id="dashboard-edit-tools">
                             <!--<button class="btn btn-success btn-fill"><i class="fa fa-eye"></i> View</button>
                             <button class="btn btn-primary btn-fill"><i class="fa fa-hand-pointer-o"></i> Edit</button>
                             <button class="btn btn-warning btn-fill"><i class="fa fa-edit"></i> Design</button>
@@ -154,8 +155,7 @@
                                 <li class="dashboard-control" role="presentation"><button btn-group="dashboard-view-mode" id="readonly" class="btn btn-success btn-fill "><i class="fa fa-eye"></i> View</button></li>
                                 <li class="dashboard-control" role="presentation"><button id="startedit" class="btn btn-primary btn-fill "><i class="fa fa-hand-pointer-o"></i> Edit</button></li>
                                 <li class="dashboard-control" role="presentation"><button btn-group="dashboard-view-mode" id="dashletedit" class="btn btn-primary btn-fill "><i class="fa fa-th-large"></i> Dashlets</button></li>
-                                <li data-step="4" data-intro="There are many control options for you discover under 'Design' !" class="dashboard-control"
-                                    role="presentation"><button btn-group="dashboard-view-mode" id="layoutedit" class="btn btn-warning btn-fill "><i class="fa fa-edit"></i> Design</button></li>
+                                <li class="dashboard-control" role="presentation"><button btn-group="dashboard-view-mode" id="layoutedit" class="btn btn-warning btn-fill "><i class="fa fa-edit"></i> Design</button></li>
                                 <li class="pull-right">
                                     <button id="toggledashlets" class="btn btn-info btn-fill dashboard-control"><i class="fa fa-low-vision"></i> Toggle Dashlets</button>
                                     <button id="delete-dashboard-btn" class="btn btn-danger btn-fill dashboard-control-last"><i class="fa fa-trash"></i> Delete Dashboard</button>
@@ -165,7 +165,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row dashlet-row" data-step="5" data-intro="This is your Dashlet Container. You cann add new dashlets to your dashboard by dragging and dropping to the desired position, or by simply clicking 'Add' button.">
+                <div class="row dashlet-row" data-step="2" data-intro="This is your Dashlet Container. You cann add new dashlets to your dashboard by dragging and dropping to the desired position, or by simply clicking 'Add' button.">
                     <div id="dashlet-list" style="display: flex; overflow: auto">
 
                     </div>

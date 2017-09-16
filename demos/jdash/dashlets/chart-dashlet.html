@@ -1,5 +1,5 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
-<j-dashlet id="chart-dashlet" title="Chart Dashlet">
+<script src="../../scripts/Chart.min.js"></script>
+<j-dashlet id="chart-dashlet" title="Chart Dashlet" data-order="5">
     <template>
         <div>
             <canvas></canvas>
@@ -9,53 +9,253 @@
 
     <script>
         jdash.define(function () {
-            this.initialized = function () {
-                var ctx = this.querySelector('canvas');
 
-                var myChart = this.chart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                        datasets: [{
-                            label: '# of Votes',
-                            data: [12, 19, 3, 5, 2, 3],
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
-                            ],
-                            borderColor: [
-                                'rgba(255,99,132,1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: false,
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }] 
+            this.templates = {
+                Line: {
+                    labels: ["January", "February", "March", "April", "May", "June", "July"],
+                    datasets: [
+                        {
+                            fillColor: "rgba(220,220,220,0.5)",
+                            strokeColor: "rgba(220,220,220,1)",
+                            pointColor: "rgba(220,220,220,1)",
+                            pointStrokeColor: "#fff",
+                            data: [65, 59, 90, 81, 56, 55, 40]
+                        },
+                        {
+                            fillColor: "rgba(151,187,205,0.5)",
+                            strokeColor: "rgba(151,187,205,1)",
+                            pointColor: "rgba(151,187,205,1)",
+                            pointStrokeColor: "#fff",
+                            data: [28, 48, 40, 19, 96, 27, 100]
                         }
+                    ]
+                },
+
+                Bar: {
+                    labels: ["January", "February", "March", "April", "May", "June", "July"],
+                    datasets: [
+                        {
+                            fillColor: "rgba(220,220,220,0.5)",
+                            strokeColor: "rgba(220,220,220,1)",
+                            data: [65, 59, 90, 81, 56, 55, 40]
+                        },
+                        {
+                            fillColor: "rgba(151,187,205,0.5)",
+                            strokeColor: "rgba(151,187,205,1)",
+                            data: [28, 48, 40, 19, 96, 27, 100]
+                        }
+                    ]
+                },
+                Radar: {
+                    labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Partying", "Running"],
+                    datasets: [
+                        {
+                            fillColor: "rgba(220,220,220,0.5)",
+                            strokeColor: "rgba(220,220,220,1)",
+                            pointColor: "rgba(220,220,220,1)",
+                            pointStrokeColor: "#fff",
+                            data: [65, 59, 90, 81, 56, 55, 40]
+                        },
+                        {
+                            fillColor: "rgba(151,187,205,0.5)",
+                            strokeColor: "rgba(151,187,205,1)",
+                            pointColor: "rgba(151,187,205,1)",
+                            pointStrokeColor: "#fff",
+                            data: [28, 48, 40, 19, 96, 27, 100]
+                        }
+                    ]
+                },
+
+                Pie: [
+                    {
+                        value: 30,
+                        color: "#F38630"
+                    },
+                    {
+                        value: 50,
+                        color: "#E0E4CC"
+                    },
+                    {
+                        value: 100,
+                        color: "#69D2E7"
                     }
-                });
+                ],
+
+                PolarArea: [
+                    {
+                        value: 30,
+                        color: "#D97041"
+                    },
+                    {
+                        value: 90,
+                        color: "#C7604C"
+                    },
+                    {
+                        value: 24,
+                        color: "#21323D"
+                    },
+                    {
+                        value: 58,
+                        color: "#9D9B7F"
+                    },
+                    {
+                        value: 82,
+                        color: "#7D4F6D"
+                    },
+                    {
+                        value: 8,
+                        color: "#584A5E"
+                    }
+                ],
+
+                Doughnut: [
+                    {
+                        value: 30,
+                        color: "#F7464A"
+                    },
+                    {
+                        value: 50,
+                        color: "#E2EAE9"
+                    },
+                    {
+                        value: 100,
+                        color: "#D4CCC5"
+                    },
+                    {
+                        value: 40,
+                        color: "#949FB1"
+                    },
+                    {
+                        value: 120,
+                        color: "#4D5360"
+                    }
+
+                ]
 
             }
 
-            this.addEventListener('after-place', function (event) {
+            this.loadConfig = function () {
+                this.drawChart();
+            }
 
+            this.initialized = function () {
+                this.drawChart();
+                var self = this;
+
+                var resizeListener = debounce(function () {
+                    self.drawChart();
+                }, 10);
+                window.addEventListener('resize', resizeListener);
+
+                this.addEventListener('dashlet-removed', function () {
+                    window.removeEventListener('resize', resizeListener);
+                });
+            }
+
+            this.chartType = function () {
+                return this.config.get("model") ?
+                    this.config.get("model").ChartType : "Line";
+            }
+
+            this.chartData = function () {
+                return this.config.get("model") ?
+                    JSON.parse(this.config.get("model").ChartData) : this.templates["Line"];
+            }
+
+            this.getDashletSize = function () {
+                return this.getBoundingClientRect();
+            }
+
+
+            this.setChartSize = function (canvas) {
+                var size = this.getDashletSize();
+                this.style.height = (Math.max(size.height, 300)) + "px";
+                canvas.width = Math.max(size.width, 200);
+                canvas.height = Math.max(size.height, 300);
+            }
+
+            this.drawChart = function () {
+                var canvas = this.querySelector("canvas");
+                this.setChartSize(canvas);
+                var ctx = canvas.getContext("2d");
+                var type = this.chartType();
+                var data = this.chartData();
+                var chartObj = new Chart(ctx);
+                this.chart = chartObj[type].apply(chartObj, [data]);
+            }
+
+            this.addEventListener('after-place', function () {
+                this.drawChart();
             });
+
+
         });
     </script>
 
 </j-dashlet>
+
+
+
+<j-dashlet-editor id="chart-dashlet-editor">
+
+    <template>
+        <p></p>
+        <input type="text" class="j-input j-animate-input" id="title" required placeholder="title" />
+        <p></p>
+        <select id="chartType" class="j-select">
+                    <option value="" disabled selected>Choose your Chart Type</option>
+                    <option value="Line">Line Chart</option>
+                    <option value="Bar">Bar Chart</option>
+                    <option value="Pie">Pie Chart</option>
+                    <option value="Radar">Radar Chart</option>
+                    <option value="PolarArea">PolarArea Chart</option>
+                    <option value="Doughnut">Doughnut Chart</option>    
+            </select>
+        <p></p>
+        <span class="form-control">Chart Data</span>
+        <textarea rows="5" id="chartData" class="j-input"></textarea>
+
+    </template>
+
+    <script>
+        jdash.define(function () {
+
+            this.initialized = function () {
+                this.titleInput = this.querySelector('#title');
+                this.templateList = this.querySelector('#chartType');
+                this.templateBox = this.querySelector('#chartData');
+                var self = this;
+                this.templateList.onchange = function () {
+                    if (self.templateList.value)
+                        self.templateBox.value = JSON.stringify(self.dashlet.templates[self.templateList.value]);
+                }
+
+                var model = this.dashlet.config.get("model") || {};
+                self.templateBox.value = model.ChartData || JSON.stringify(this.dashlet.templates[this.dashlet.chartType()]);
+                self.templateList.value = model.ChartType || this.dashlet.chartType();
+                self.titleInput.value = this.dashlet.title;
+            }
+
+
+
+            this.addEventListener('setconfig', function (event) {
+                var title = this.titleInput.value;
+                var chartType = this.templateList.value;
+                var chartData = this.templateBox.value;
+                if (!title || !chartType || !chartData) {
+                    alert('Set a valid value please!');
+                    event.preventDefault();
+                    return
+                }
+
+                this.dashlet.config.set('model', {
+                    ChartType: chartType,
+                    ChartData: chartData
+                });
+                this.dashlet.setAttribute('title', title);
+            })
+
+        })
+    </script>
+
+</j-dashlet-editor>

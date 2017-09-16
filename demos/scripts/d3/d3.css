@@ -1,0 +1,281 @@
+.s1 path {
+  fill: #ddd;
+  stroke: black;
+  stroke-width: 1.5px;
+}
+
+.s1 form {
+  position: absolute;
+  font-size: 18px;
+}
+
+.s1 text {
+  font-size: 24px;
+  font-weight: 500;
+  fill: white;
+}
+
+.s1 .sun path {
+  fill: #6baed6;
+}
+
+.s1 .planet path {
+  fill: #9ecae1;
+}
+
+.s1 .ring path {
+  fill: #c6dbef;
+}
+
+
+.s2 svg {
+  font: 10px sans-serif;
+}
+
+.s2 .axis {
+  shape-rendering: crispEdges;
+}
+
+.s2 .axis line {
+  stroke: #ddd;
+  stroke-width: .5px;
+}
+
+.s2 .axis path {
+  display: none;
+}
+
+.s2 rect.extent {
+  fill: #000;
+  fill-opacity: .125;
+  stroke: #fff;
+}
+
+.s2 rect.frame {
+  fill: #fff;
+  fill-opacity: .7;
+  stroke: #aaa;
+}
+
+.s2 circle {
+  fill: #ccc;
+  fill-opacity: .5;
+}
+
+.s2 .cell text {
+  pointer-events: none;
+}
+
+.s2 .setosa {
+  fill: #800;
+}
+
+.s2 .versicolor {
+  fill: #080;
+}
+
+.s2 .virginica {
+  fill: #008;
+}
+
+
+.d3 #counties path {
+  stroke: #fff;
+  stroke-width: .25px;
+}
+
+.d3 #states path {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+
+
+/*.d3 #chart, #header, #footer {
+  position: absolute;
+  top: 0;
+}*/
+
+/*.d3 #header, #footer {
+  z-index: 1;
+  display: block;
+  font-size: 36px;
+  font-weight: 300;
+  text-shadow: 0 1px 0 #fff;
+}*/
+
+.d3 #header.inverted, #footer.inverted {
+  color: #fff;
+  text-shadow: 0 1px 4px #000;
+}
+
+.d3 #header {
+  top: 80px;
+  left: 140px;
+  width: 1000px;
+}
+
+.d3 #footer {
+  top: 680px;
+  right: 140px;
+  text-align: right;
+}
+
+.d3 rect {
+  fill: none;
+  pointer-events: all;
+}
+
+.d3 pre {
+  font-size: 18px;
+}
+
+.d3 line {
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.d3 .string, .regexp {
+  color: #f39;
+}
+
+.d3 .keyword {
+  color: #00c;
+}
+
+.d3 .comment {
+  color: #777;
+  font-style: oblique;
+}
+
+.d3 .number {
+  color: #369;
+}
+
+.d3 .class, .special {
+  color: #1181B8;
+}
+
+.d3 a:link, a:visited {
+  color: #000;
+  text-decoration: none;
+}
+
+.d3 a:hover {
+  color: #666;
+}
+
+.d3 .hint {
+  position: absolute;
+  right: 0;
+  width: 1280px;
+  font-size: 12px;
+  color: #999;
+}
+
+
+
+.d3 .node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.d3 .node {
+  font: 10px sans-serif;
+}
+
+.d3 .link {
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+.d3 .ui-slider {
+  font-size: 10px;
+  width: 300px;
+  margin-top: 5px;
+}
+
+.d3 .ui-state-focus {
+  outline: none;
+}
+
+.d3 #level {
+  width: 300px;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.s4 svg {
+  font: 10px sans-serif;
+}
+
+.s4 circle {
+  -webkit-transition: fill-opacity 250ms linear;
+}
+
+.s4 .selecting circle {
+  fill-opacity: .2;
+}
+
+.s4 .selecting circle.selected {
+  stroke: #f00;
+}
+
+.s4 .axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.s4 .brush .extent {
+  stroke: #fff;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+
+.s5 svg {
+  font: 10px sans-serif;
+}
+
+.s5 path {
+  fill: steelblue;
+}
+
+.s5 .axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.s5 .brush .extent {
+  stroke: #fff;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+
+.s6 .node rect {
+  cursor: pointer;
+  fill: #fff;
+  fill-opacity: .5;
+  stroke: #3182bd;
+  stroke-width: 1.5px;
+}
+
+.s6 .node text {
+  font: 10px sans-serif;
+  pointer-events: none;
+}
+
+.s6 path.link {
+  fill: none;
+  stroke: #9ecae1;
+  stroke-width: 1.5px;
+}
+
+ .bar {
+  fill: steelblue !important;
+  fill-opacity: .9;
+}

@@ -3,13 +3,13 @@
         display: flex;
         flex-flow: row wrap;
     }
-    
+
     .stock-container>* {
         flex: 1 300px;
         flex-shrink: 1;
         max-height: 400px;
     }
-    
+
     text[text-anchor="end"] {
         display: none;
     }
@@ -20,12 +20,20 @@
 <script src="//code.highcharts.com/modules/exporting.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20150503/json2.min.js"></script>
 
-<j-dashlet id="j-stock" title="Stock Prices">
+<j-dashlet id="j-stock" title="Stock Prices" data-order="11">
     <template>
-        <div class="stock-container">
-            <div id="donut-chart"></div>
-            <div id="area-chart"></div>
-            <div id="bar-chart"></div>
+        <div class="j-row">
+            <div class="j-col s6">
+                <div id="donut-chart"></div>
+            </div>
+            <div class="j-col s6">
+                <div id="area-chart"></div>
+            </div>
+        </div>
+        <div class="j-row">
+            <div class="j-col j-center">
+                <div id="bar-chart"></div>
+            </div>
         </div>
     </template>
     <script>
@@ -39,11 +47,29 @@
                     }
                 });
 
+                var self = this;
+
+                var resizeListener = debounce(function () {
+                    self.drawCharts();
+                }, 10);
+                window.addEventListener('resize', resizeListener);
+
+                this.addEventListener('dashlet-removed', function () {
+                    window.removeEventListener('resize', resizeListener);
+                });
+            }
+
+            this.addEventListener('after-place', function () {
+                this.drawCharts();
+            })
+
+            this.drawCharts = function () {
+
                 /**
                  * Bar chart
                  */
 
-                $('#bar-chart').highcharts({
+                $(this).find('#bar-chart').highcharts({
                     title: {
                         text: 'EPS'
                     },
@@ -108,7 +134,7 @@
                 /**
                  * Area chart
                  */
-                $('#area-chart').highcharts('StockChart', {
+                $(this).find('#area-chart').highcharts('StockChart', {
 
                     title: {
                         text: 'Stock price by second'
@@ -229,7 +255,7 @@
                     }]
                 });
 
-                $('#donut-chart').highcharts({
+                $(this).find('#donut-chart').highcharts({
                     chart: {
                         plotBackgroundColor: null,
                         plotBorderWidth: 0,
@@ -278,10 +304,6 @@
                         ]
                     }]
                 });
-
-
-
-
 
             }
 
