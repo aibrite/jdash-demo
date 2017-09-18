@@ -134,24 +134,28 @@
 
     <template>
         <div class="j-container">
-            <span class="form-control">Data Presets</span>
-            <select id="presets" class="j-select">
+            <p>
+                <span class="form-control">Data Presets</span>
+                <select id="presets" class="j-select">
                     <option value="" disabled selected>Choose your presets</option>
                 </select>
-            <span class="form-control">Chart Theme</span>
-            <select id="theme" class="j-select">
+            </p>
+            <p>
+                <span class="form-control">Chart Theme</span>
+                <select id="theme" class="j-select">
                     <option value="default">Default</option>
                     <option value="green">Green</option>
                     <option value="gray">Gray</option>
                     <option value="blue">Blue</option>    
                 </select>
+            </p>
         </div>
     </template>
 
     <script>
         jdash.define(function () {
 
-            this.initialized = function () { 
+            this.initialized = function () {
                 this.presetsInput = this.querySelector('#presets');
                 this.themeInput = this.querySelector('#theme');
 
@@ -170,7 +174,7 @@
                 var preset = this.dashlet.config.get("preset") || "Combination chart";
 
                 self.presetsInput.value = preset;
-                self.themeInput.value = theme; 
+                self.themeInput.value = theme;
 
 
 
@@ -178,17 +182,17 @@
 
 
             this.addEventListener('setconfig', function (event) {
-         
+
                 var preset = this.presetsInput.value;
                 var theme = this.themeInput.value;
-                if ( !preset || !theme) {
+                if (!preset || !theme) {
                     alert('Set a valid value please!');
                     event.preventDefault();
                     return
                 }
 
                 this.dashlet.config.set('preset', preset);
-                this.dashlet.config.set('theme', theme); 
+                this.dashlet.config.set('theme', theme);
             })
 
         })
