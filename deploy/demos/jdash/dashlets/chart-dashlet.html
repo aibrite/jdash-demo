@@ -1,5 +1,5 @@
 <script src="../../scripts/Chart.min.js"></script>
-<j-dashlet id="chart-dashlet" title="Chart Dashlet" data-order="5">
+<j-dashlet id="chart-dashlet" title="ChartJS Sample" data-order="5">
     <template>
         <div>
             <canvas></canvas>
@@ -200,19 +200,24 @@
 
     <template>
         <div class="j-container">
-            <span class="form-control">Chart Type</span>
-            <select id="chartType" class="j-select">
-                            <option value="" disabled selected>Choose your Chart Type</option>
-                            <option value="Line">Line Chart</option>
-                            <option value="Bar">Bar Chart</option>
-                            <option value="Pie">Pie Chart</option>
-                            <option value="Radar">Radar Chart</option>
-                            <option value="PolarArea">PolarArea Chart</option>
-                            <option value="Doughnut">Doughnut Chart</option>    
-                    </select>
+            <p>
+                <span class="form-control">Chart Type</span>
+                <select id="chartType" class="j-select">
+                                    <option value="" disabled selected>Choose your Chart Type</option>
+                                    <option value="Line">Line Chart</option>
+                                    <option value="Bar">Bar Chart</option>
+                                    <option value="Pie">Pie Chart</option>
+                                    <option value="Radar">Radar Chart</option>
+                                    <option value="PolarArea">PolarArea Chart</option>
+                                    <option value="Doughnut">Doughnut Chart</option>    
+                            </select>
+            </p>
 
-            <span class="form-control">Chart Data</span>
-            <textarea rows="5" id="chartData" class="j-input"></textarea>
+            <p>
+                <span class="form-control">Chart Data</span>
+                <textarea rows="5" id="chartData" class="j-input"></textarea>
+            </p>
+
         </div>
     </template>
 
