@@ -78,6 +78,34 @@ $(document).ready(function () {
         this.viewModeChangeHandler(this.dashboard.getAttribute('j-view-mode') || 'readonly');
         this.dashboard.layout.makeDroppable('[j-type="j-dashlet-module"]', true, this.dashletList);
 
+
+        this.dashboard.addEventListener('dashlet:drag-started', function (event) {
+            if (event.detail.dashlet.model.moduleId == "hello-world") {
+                console.log("hello-world drag started");
+                
+            };
+
+            event.detail.dashlet.panel.style.zIndex = 5;
+        });
+
+        this.dashboard.addEventListener('dashlet:drag-enter', function (event) {
+            if (event.detail.dashlet.model.moduleId == "hello-world") {
+                console.log("hello-world drag entered to zone");
+              
+            };
+
+        });
+
+        this.dashboard.addEventListener('dashlet:drag-dropped', function (event) {
+            event.detail.dashlet.panel.style.zIndex = "";
+        });
+
+
+        this.dashboard.addEventListener('dashlet-module:drag-started', function (event) {
+            
+        });
+
+
         //removeIf(noprod)
         window.jdash.Provider.init({
             userToken: function (cb) {
@@ -167,6 +195,13 @@ $(document).ready(function () {
     }
 
     app.prototype.createDashletModuleEls = function () {
+
+        this.dashletModules.sort(function (a, b) {
+            var firstOrder = parseInt(a.attributes["data-order"].value);
+            var secondOrder = parseInt(b.attributes["data-order"].value);
+            return firstOrder - secondOrder;
+        });
+
         for (var i = 0; i < this.dashletModules.length; i++) {
             var module = this.dashletModules[i];
             var el = document.importNode(this.dashletListItemTemplate.content, true);
@@ -188,7 +223,7 @@ $(document).ready(function () {
             }
             var container = document.createElement('div');
             container.appendChild(el);
-            container.style.minWidth = '200px';
+            container.style.minWidth = '250px';
 
             this.dashletList.appendChild(container);
         }

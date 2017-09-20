@@ -2,25 +2,25 @@
   "_args": [
     [
       {
-        "raw": "jdash-ui@^1.0.7",
+        "raw": "jdash-ui@^1.0.8",
         "scope": null,
         "escapedName": "jdash-ui",
         "name": "jdash-ui",
-        "rawSpec": "^1.0.7",
-        "spec": ">=1.0.7 <2.0.0",
+        "rawSpec": "^1.0.8",
+        "spec": ">=1.0.8 <2.0.0",
         "type": "range"
       },
       "/Users/utku/projects/aibrite/jdash/deploy/jdash-demo"
     ]
   ],
-  "_from": "jdash-ui@>=1.0.7 <2.0.0",
-  "_id": "jdash-ui@1.0.7",
+  "_from": "jdash-ui@>=1.0.8 <2.0.0",
+  "_id": "jdash-ui@1.0.8",
   "_inCache": true,
   "_location": "/jdash-ui",
   "_nodeVersion": "6.11.0",
   "_npmOperationalInternal": {
     "host": "s3://npm-registry-packages",
-    "tmp": "tmp/jdash-ui-1.0.7.tgz_1505564795445_0.7304364340379834"
+    "tmp": "tmp/jdash-ui-1.0.8.tgz_1505917144138_0.30648885713890195"
   },
   "_npmUser": {
     "name": "tansu",
@@ -29,22 +29,22 @@
   "_npmVersion": "3.10.10",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "jdash-ui@^1.0.7",
+    "raw": "jdash-ui@^1.0.8",
     "scope": null,
     "escapedName": "jdash-ui",
     "name": "jdash-ui",
-    "rawSpec": "^1.0.7",
-    "spec": ">=1.0.7 <2.0.0",
+    "rawSpec": "^1.0.8",
+    "spec": ">=1.0.8 <2.0.0",
     "type": "range"
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/jdash-ui/-/jdash-ui-1.0.7.tgz",
-  "_shasum": "ade043acbcb3af528335e2ba425bb8bd0fd4215e",
+  "_resolved": "https://registry.npmjs.org/jdash-ui/-/jdash-ui-1.0.8.tgz",
+  "_shasum": "f7c13023aec441fb3e52f72ae06711719a4ef244",
   "_shrinkwrap": null,
-  "_spec": "jdash-ui@^1.0.7",
+  "_spec": "jdash-ui@^1.0.8",
   "_where": "/Users/utku/projects/aibrite/jdash/deploy/jdash-demo",
   "author": {
     "name": "Aibrite Inc."
@@ -54,10 +54,10 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "ade043acbcb3af528335e2ba425bb8bd0fd4215e",
-    "tarball": "https://registry.npmjs.org/jdash-ui/-/jdash-ui-1.0.7.tgz"
+    "shasum": "f7c13023aec441fb3e52f72ae06711719a4ef244",
+    "tarball": "https://registry.npmjs.org/jdash-ui/-/jdash-ui-1.0.8.tgz"
   },
-  "gitHead": "92922e6af0fe88ebdbfae428bb1a95e7bc48c8f9",
+  "gitHead": "db5dc043eb01184052522236b416eda56b4d52b7",
   "license": "SEE LICENSE IN license.md",
   "main": "dist/jdash.min.js",
   "maintainers": [
@@ -73,5 +73,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "dist/definitions/index.d.ts",
-  "version": "1.0.7"
+  "version": "1.0.8"
 }
