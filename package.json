@@ -1,6 +1,6 @@
 {
   "name": "jdash-demo",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "jdash demo app",
   "main": "app.js",
   "scripts": {

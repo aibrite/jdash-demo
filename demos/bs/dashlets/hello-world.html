@@ -1,4 +1,4 @@
-<j-dashlet id="hello-world" title="Hello world!">
+<j-dashlet id="hello-world" title="Hello world!" data-order="1">
     <template>
         <!-- This will be the HTML content of your dashlet  -->
         <h1></h1>
@@ -8,7 +8,7 @@
 
             this.loadConfig = function () {
                 var h1 = this.querySelector('h1')
-                h1.textContent = this.config.get('header') || 'Hello World!';
+                h1.textContent = this.config.get('header') || 'Welcome!';
             }
 
             this.initialized = function () {
@@ -27,8 +27,10 @@
 <j-dashlet-editor id="hello-world-editor">
 
     <template>
-        <h3>Set a header value</h3>
-        <input type="text">
+        <div class="form-horizontal">
+            <label>Sample setting</label>
+            <input type="text" class="form-control">
+        </div>
     </template>
 
     <script>
@@ -36,7 +38,7 @@
 
             this.initialized = function () {
                 var inputEl = this.querySelector('input');
-                inputEl.value = this.dashlet.config.get('header') || '';
+                inputEl.value = this.dashlet.config.get('header') || 'Welcome';
             }
 
             this.addEventListener('setconfig', function (event) {
