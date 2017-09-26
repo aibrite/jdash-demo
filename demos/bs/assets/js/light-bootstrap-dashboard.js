@@ -30,7 +30,7 @@ $(document).ready(function(){
 
     // Init navigation toggle for small screens
     if(window_width <= 991){
-        lbd.initRightMenu();
+        lbd.initRightMenu(false);
     }
 
     //  Activate the tooltips
@@ -58,7 +58,7 @@ $('body').on('touchstart.dropdown', '.dropdown-menu', function (e) { e.stopPropa
 // activate collapse right menu when the windows is resized
 $(window).resize(function(){
     if($(window).width() <= 991){
-        lbd.initRightMenu();
+        lbd.initRightMenu(true);
     }
 });
 
@@ -76,7 +76,7 @@ lbd = {
             $sidebar.append(sidebar_container);
         }
     },
-    initRightMenu: function(){
+    initRightMenu: function(isResize){
          if(!navbar_initialized){
             $navbar = $('nav').find('.navbar-collapse').first().clone(true);
 
@@ -123,9 +123,9 @@ lbd = {
 
              $toggle = $('.navbar-toggle');
 
-             $navbar.find('a').removeClass('btn btn-round btn-default');
-             $navbar.find('button').removeClass('btn-round btn-fill btn-info btn-primary btn-success btn-danger btn-warning btn-neutral');
-             $navbar.find('button').addClass('btn-simple btn-block');
+            //  $navbar.find('a').removeClass('btn btn-round btn-default');
+            //  $navbar.find('button').removeClass('btn-round btn-fill btn-info btn-primary btn-success btn-danger btn-warning btn-neutral');
+            //  $navbar.find('button').addClass('btn-simple btn-block');
 
              $toggle.click(function (){
                 if(lbd.misc.navbar_menu_visible == 1) {
@@ -157,6 +157,7 @@ lbd = {
                 }
             });
             navbar_initialized = true;
+            rightBarInitted && rightBarInitted($navbar.get(0),isResize);
         }
 
     }

@@ -30,14 +30,9 @@
                 }
             }
 
-            // this.addEventListener('configurationchange', function (event) {
-            //     var content = this.querySelector('div.user-content');
-            //     content.innerHTML = event.detail.newVal;
-            // })
-
-            this.addEventListener('saveconfig', function (event) {
+            this.addEventListener('configsaved', function (event) {
                 this.loadConfiguration();
-            })
+            });
         })
     </script>
 

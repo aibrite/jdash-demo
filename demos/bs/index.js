@@ -50,11 +50,11 @@ $(document).ready(function () {
         this.editDashletsBtn = document.querySelector('#dashletedit');
         this.editLayoutBtn = document.querySelector('#layoutedit');
         this.createDashboardBtn = document.querySelector('#create-dashboard-btn');
-        this.dashboardListContainer = document.querySelector('#dashboard-list');
+        this.dashboardListContainer = this.dashboardListContainer || document.querySelector('#dashboard-list');
         this.dashboardListItemTemplate = document.querySelector('#dashboard-list-item-template');
         this.dashletListItemTemplate = document.querySelector('#dashlet-list-item-template');
         this.startEditBtn = document.querySelector('#startedit');
-        // this.themesEl = document.querySelector('#themes');
+        this.themesEl = document.querySelector('#themes');
         this.toggleDashletsBtn = document.querySelector('#toggledashlets');
         this.dashboardTitleEl = document.querySelector('#dashboard-title');
         this.dashboardEditTools = document.querySelector('#dashboard-edit-tools');
@@ -66,14 +66,14 @@ $(document).ready(function () {
         this.editDashletsBtn.addEventListener('click', this.setEditMode.bind(this, 'dashletedit'));
         this.startEditBtn.addEventListener('click', this.setEditMode.bind(this, 'dashletedit'));
         this.editLayoutBtn.addEventListener('click', this.setEditMode.bind(this, 'layoutedit'));
-        this.createDashboardBtn.addEventListener('click', this.createDashboard.bind(this));
+        // this.createDashboardBtn.addEventListener('click', this.createDashboard.bind(this));
         this.toggleDashletsBtn.addEventListener('click', this.toggleCollapseDashlets.bind(this));
         this.dashboard.addEventListener('viewmode-change', function (event) { this.viewModeChangeHandler(event.detail.newVal) }.bind(this));
         this.dashboard.addEventListener('state-change', this.dashboardStateChangeHandler.bind(this));
         this.deleteDashboardBtn.addEventListener('click', this.deleteDashboard.bind(this));
         window.addEventListener('popstate', this.popStateHandler.bind(this));
 
-        this.loadThemes();
+        this.loadThemes(this.themesEl);
         this.createDashletModuleEls();
         this.viewModeChangeHandler(this.dashboard.getAttribute('j-view-mode') || 'readonly');
         this.dashboard.layout.makeDroppable('[j-type="j-dashlet-module"]', true, this.dashletList);
@@ -82,7 +82,7 @@ $(document).ready(function () {
         this.dashboard.addEventListener('dashlet:drag-started', function (event) {
             if (event.detail.dashlet.model.moduleId == "hello-world") {
                 console.log("hello-world drag started");
-                
+
             };
 
             event.detail.dashlet.panel.style.zIndex = 5;
@@ -91,7 +91,7 @@ $(document).ready(function () {
         this.dashboard.addEventListener('dashlet:drag-enter', function (event) {
             if (event.detail.dashlet.model.moduleId == "hello-world") {
                 console.log("hello-world drag entered to zone");
-              
+
             };
 
         });
@@ -102,7 +102,7 @@ $(document).ready(function () {
 
 
         this.dashboard.addEventListener('dashlet-module:drag-started', function (event) {
-            
+
         });
 
 
@@ -117,6 +117,7 @@ $(document).ready(function () {
         //endRemoveIf(noprod)
 
         this.go();
+        this.changeTheme({ name: '' });
     }
 
     app.prototype.openSidenav = function () {
@@ -229,21 +230,21 @@ $(document).ready(function () {
         }
     }
 
-    app.prototype.loadThemes = function () {
-        // jdash.ThemeManager.getThemes().forEach(function (theme) {
-        //     var op = document.createElement('a');
-        //     op.textContent = theme.name;
-        //     op.style.cursor = "pointer"
-        //     this.themesEl.appendChild(op);
-        //     op.addEventListener('click', this.changeTheme.bind(this, theme))
-        // }.bind(this))
+    app.prototype.loadThemes = function (themeContainer) {
+        jdash.ThemeManager.getThemes().forEach(function (theme) {
+            var li = document.createElement('li');
+            var op = document.createElement('a');
+            op.href = '#';
+            li.appendChild(op);
+            op.textContent = theme.name;
+            op.style.cursor = "pointer"
+            themeContainer.appendChild(li);
+            li.addEventListener('click', this.changeTheme.bind(this, theme))
+        }.bind(this))
     }
 
     app.prototype.viewModeChangeHandler = function (newMode) {
-        // var items = document.querySelectorAll('[btn-group="dashboard-view-mode"]');
-        // for (var i = 0; i < items.length; i++) {
-        //     items[i].id == newMode ? items[i].classList.remove('j-white') : items[i].classList.add('j-white');
-        // }
+
         if (newMode == 'readonly') {
             this.startEditBtn.style.display = '';
             this.editDashletsBtn.style.display = 'none';
@@ -262,9 +263,9 @@ $(document).ready(function () {
         newMode == 'dashletedit' ? (this.dashletList.style.display = 'flex') : (this.dashletList.style.display = 'none')
     }
 
-    // app.prototype.changeTheme = function (theme) {
-    //     jdash.ThemeManager.setCurrentTheme(theme.name)
-    // }
+    app.prototype.changeTheme = function (theme) {
+        jdash.ThemeManager.setCurrentTheme(theme.name, 'bootstrap');
+    }
 
 
     function isDemoDashboardSuitable(dashboard) {
@@ -282,7 +283,7 @@ $(document).ready(function () {
         return true;
     }
 
-    app.prototype.createDashboardList = function (dashboards) {
+    app.prototype.createDashboardList = function (dashboards, listContainer) {
         this.dashboardListContainer.innerHTML = '';
         dashboards.forEach(function (dashboard) {
             var el = document.importNode(this.dashboardListItemTemplate.content, true);
@@ -335,6 +336,7 @@ $(document).ready(function () {
                 result.meta && (model.meta = result.meta);
                 this.loadDashboards();
                 this.loadDashboard(model);
+                startNewDashboardIntro && startNewDashboardIntro();
             }.bind(this)).catch(function (err) {
                 alert('Unable to create dashboard:' + err.message)
             }.bind(this))
