@@ -133,3 +133,26 @@
 .logo {
     text-align: center;
 }
+
+.move {
+    cursor: move;
+}
+
+.collapse.navbar-collapse.has-image .dropdown .dropdown-toggle {
+    width: 86%;
+    border: 1px solid #ccc;
+}
+
+#dashboard-list li {
+    border-radius: 10px;
+}
+
+.sidebar-wrapper .navbar-nav {
+    text-align: center;  
+}
+
+.sidebar-wrapper .navbar-nav li button {
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
