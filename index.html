@@ -4,15 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Use JDash to add drag-drop dashboards to your application. JDash supports all major platforms including angular, bootstrap, nodejs and .net core.">
-    <meta name="author" content="AiBrite">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="description" content="Use JDash to add drag-drop dashboards to your application. JDash supports all major platforms including angular, bootstrap, nodejs and dotnet core.">
+    <meta name="author" content="Aibrite">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <!--SEO Opt-->
     <meta name="distribution" content="web">
-    <link rel=”publisher” href=”http://aibrite.com”>
 
-    <meta name="keywords" content="javascript dashboard, user designable dashboard, mvc dashbord, asp.net dashboard,.net dashboard,asp.net dashboard controls,dot net dashboard,.net mobile dashboard,mobile dashboard,.net widget,asp.net widget">
+    <meta name="keywords" content="javascript dashboard, dashboard framework, user designable dashboard, mvc dashbord, asp net dashboard, dotnet dashboard,asp net dashboard controls, dot net dashboard, dotnet mobile dashboard,mobile dashboard, dotnet widget, asp net widget">
     <meta name="rating" content="general">
     <meta name="revisit-after" content="3 day">
     <meta name="robots" content="index,follow,all">
@@ -21,7 +20,7 @@
     <meta property=”og:url” content=”http://jdash.io”>
     <meta property="og:image" content="http://jdash.io/img/jdash-dashboard-drag-drop-finger.png">
     <meta property=”og:description” content=”Use JDash to add drag-drop dashboards to your application. JDash supports all major
-        platforms including angular, bootstrap, nodejs and .net core.”>
+        platforms including angular, bootstrap, nodejs and dotnet core”>
     <meta property="og:type" content="website">
 
     <meta property="twitter:card" content="summary_large_image">
@@ -49,10 +48,8 @@
 
 
     <div class="j-margin-bottom">
-        <div class="w3-panel w3-border-top w3-border-bottom w3-border-green">
-        </div>
-        <div class="j-container j-blue">
-            <h1 class="j-center">Jdash supports known/any css framework. Please select a theme:</h1>
+        <div class="j-container j-dark-gray">
+            <h2>Welcome to Jdash demo application</h2>
         </div>
 
         <div id="start-form" style="display: none" class="j-container j-animate-top">
@@ -65,43 +62,49 @@
                     <h2 class="j-text-blue">Great! Now personalize your demo with your e-mail</h2>
 
                     <p>
-                        <label>Your e-mail address</label></p>
+                        <label>Your e-mail address</label>
+                    </p>
                     <input class="j-input j-border j-round-large" type="email" id="email" required>
 
                     <div class="j-center j-padding">
-                        <button type="submit" id="start-btn" class="j-btn j-green">Start Demo</button>
+                        <button type="submit" id="start-btn" class="j-btn j-blue">Start Demo</button>
                     </div>
                 </form>
             </div>
         </div>
+        <div class="j-container">
+            <h4>Please select a theme:</h4>
+        </div>
+        <div class="j-margin-top j-row-padding">
 
-        <div class="j-margin-top">
+            <div class="j-half j-center">
 
-            <div class="j-half">
-                <div id="jdashdemo" onclick="selectDemo('jdashdemo')" class="j-card-2 j-center demo-container">
-
+                <div id="jdashdemo" onclick="selectDemo('jdashdemo')" class=" j-container j-padding-16 j-blue j-center demo-container">
                     <div class="j-container">
-                        <h2>Jdash Theme</h2>
+                        <h2>Jdash</h2>
                     </div>
                     <div class="j-container">
-                        <p>Demo uses colors and styles from jdash.css</p>
+                        <p>Styles from jdash.css</p>
                     </div>
                 </div>
+
             </div>
 
 
-            <div class="j-margin-bottom">
-                <div class="j-half">
-                    <div id="bsdemo" onclick="selectDemo('bsdemo')" class="j-card-2 j-center demo-container">
-                        <div class="j-container">
-                            <h2>Bootstrap Theme</h2>
-                        </div>
-                        <div class="j-container">
-                            <p>Demo uses colors and styles from official Bootstrap.css</p>
-                        </div>
+
+            <div class="j-half j-center">
+
+                <div id="bsdemo" onclick="selectDemo('bsdemo')" class="j-container j-padding-16 j-orange j-center demo-container">
+                    <div class="j-container">
+                        <h2>Bootstrap</h2>
+                    </div>
+                    <div class="j-container">
+                        <p>Styles from bootstrap.css</p>
                     </div>
                 </div>
+
             </div>
+
 
 
             <!--<div class="j-third">
@@ -118,19 +121,14 @@
         </div>
 
     </div>
-    <!-- <div class="j-margin-bottom">
-        <div class="j-container">
-            <div id="bsdemo" class="j-card-2 j-center demo-container">
-                <div class="j-container">
-                    <h2 class="j-text-blue">Coming Soon!</h2>
-                    <h2>Bootstrap Theme</h2>
-                </div>
-                <div class="j-container">
-                    <p>Demo uses colors and styles from official Bootstrap.css</p>
-                </div>
-            </div>
-        </div>
-    </div> -->
+    <div class="j-container">
+        <p>This is an open source dashboard application. Please see
+            <a href="https://github.com/aibrite/jdash-demo" target="_blank" class="">Github Repo</a>
+            to download source code.</p>
+        <p>Visit
+            <a href="http://jdash.io" target="_blank" class="j-text-dark-gray j-right-align">jdash.io</a> to get more information about Jdash.
+        </p>
+    </div>
 
 
 </body>
@@ -147,11 +145,12 @@
     function selectDemo(demo) {
         for (var k in demos) {
             document.querySelector('#' + k).classList.remove('j-blue');
-            document.querySelector('#' + k).classList.remove('j-card-6');
+            document.querySelector('#' + k).classList.remove('j-green');
+            document.querySelector('#' + k).classList.remove('j-orange');
 
         }
-        document.querySelector('#' + demo).classList.add('j-blue');
-        document.querySelector('#' + demo).classList.add('j-card-6');
+        // document.querySelector('#' + demo).classList.add('j-blue');
+        document.querySelector('#' + demo).classList.add('j-green');
         document.querySelector('#start-form').style.display = 'block';
         selected = demo;
         document.querySelector('#email').focus();
