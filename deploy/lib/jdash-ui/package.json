@@ -1,41 +1,19 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "jdash-ui@^1.0.8",
-        "scope": null,
-        "escapedName": "jdash-ui",
-        "name": "jdash-ui",
-        "rawSpec": "^1.0.8",
-        "spec": ">=1.0.8 <2.0.0",
-        "type": "range"
-      },
-      "/Users/utku/projects/aibrite/jdash/deploy/jdash-demo"
-    ]
-  ],
-  "_from": "jdash-ui@>=1.0.8 <2.0.0",
+  "_from": "jdash-ui@^1.0.12",
   "_id": "jdash-ui@1.0.12",
-  "_inCache": true,
+  "_inBundle": false,
+  "_integrity": "sha1-iO6291h8IiBoteFlVM1sMeXVY6g=",
   "_location": "/jdash-ui",
-  "_nodeVersion": "6.11.0",
-  "_npmOperationalInternal": {
-    "host": "s3://npm-registry-packages",
-    "tmp": "tmp/jdash-ui-1.0.12.tgz_1508597512526_0.022078559268265963"
-  },
-  "_npmUser": {
-    "name": "tansu",
-    "email": "accounts@aibrite.com"
-  },
-  "_npmVersion": "3.10.10",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "jdash-ui@^1.0.8",
-    "scope": null,
-    "escapedName": "jdash-ui",
+    "type": "range",
+    "registry": true,
+    "raw": "jdash-ui@^1.0.12",
     "name": "jdash-ui",
-    "rawSpec": "^1.0.8",
-    "spec": ">=1.0.8 <2.0.0",
-    "type": "range"
+    "escapedName": "jdash-ui",
+    "rawSpec": "^1.0.12",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.12"
   },
   "_requiredBy": [
     "#USER",
@@ -43,32 +21,18 @@
   ],
   "_resolved": "https://registry.npmjs.org/jdash-ui/-/jdash-ui-1.0.12.tgz",
   "_shasum": "88eeb6f7587c222068b5e16554cd6c31e5d563a8",
-  "_shrinkwrap": null,
-  "_spec": "jdash-ui@^1.0.8",
+  "_spec": "jdash-ui@^1.0.12",
   "_where": "/Users/utku/projects/aibrite/jdash/deploy/jdash-demo",
   "author": {
     "name": "Aibrite Inc."
   },
-  "dependencies": {},
+  "bundleDependencies": false,
+  "deprecated": false,
   "description": "jdash client library",
   "devDependencies": {},
-  "directories": {},
-  "dist": {
-    "shasum": "88eeb6f7587c222068b5e16554cd6c31e5d563a8",
-    "tarball": "https://registry.npmjs.org/jdash-ui/-/jdash-ui-1.0.12.tgz"
-  },
-  "gitHead": "9982bd487285095b58a399564f54d58b03600801",
   "license": "SEE LICENSE IN license.md",
   "main": "dist/jdash.min.js",
-  "maintainers": [
-    {
-      "name": "tansu",
-      "email": "accounts@aibrite.com"
-    }
-  ],
   "name": "jdash-ui",
-  "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
