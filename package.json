@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/aibrite/jdash-demo#readme",
   "dependencies": {
-    "jdash-ui": "^1.0.13"
+    "jdash-ui": "^1.0.14"
   },
   "devDependencies": {
     "del": "^3.0.0",

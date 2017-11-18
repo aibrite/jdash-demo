@@ -1,27 +1,27 @@
 {
-  "_from": "jdash-ui@^1.0.13",
-  "_id": "jdash-ui@1.0.13",
+  "_from": "jdash-ui@^1.0.14",
+  "_id": "jdash-ui@1.0.14",
   "_inBundle": false,
-  "_integrity": "sha512-diZXZ9AysonuSdBIeYyb4wfZVa2q8SukD8o7ohooZ96RoyWLvJsi/3/qKWFywsyDICwLj4OkjO7DME3oBnIR0Q==",
+  "_integrity": "sha512-duLgzGdwTASKIt+k4rF0PnLPFu7mDRbFT1LLLEoNuvE+qPabI1uwNLAv3X+Jypb5PQEBTuoAB1hYnK+IPfry8A==",
   "_location": "/jdash-ui",
   "_phantomChildren": {},
   "_requested": {
     "type": "range",
     "registry": true,
-    "raw": "jdash-ui@^1.0.13",
+    "raw": "jdash-ui@^1.0.14",
     "name": "jdash-ui",
     "escapedName": "jdash-ui",
-    "rawSpec": "^1.0.13",
+    "rawSpec": "^1.0.14",
     "saveSpec": null,
-    "fetchSpec": "^1.0.13"
+    "fetchSpec": "^1.0.14"
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/jdash-ui/-/jdash-ui-1.0.13.tgz",
-  "_shasum": "9113fb5fee7c736a43308ba4bde8ab90fb6fd125",
-  "_spec": "jdash-ui@^1.0.13",
+  "_resolved": "https://registry.npmjs.org/jdash-ui/-/jdash-ui-1.0.14.tgz",
+  "_shasum": "93fae65b4d61bc3064226480ca59c16af54092cd",
+  "_spec": "jdash-ui@^1.0.14",
   "_where": "/Users/utku/projects/aibrite/jdash/deploy/jdash-demo",
   "author": {
     "name": "Aibrite Inc."
@@ -37,5 +37,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "dist/definitions/index.d.ts",
-  "version": "1.0.13"
+  "version": "1.0.14"
 }
