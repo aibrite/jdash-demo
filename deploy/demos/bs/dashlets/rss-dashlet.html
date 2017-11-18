@@ -67,10 +67,14 @@
                 this.editorOpen = true;
             }
 
-            setInterval(() => {
-                $timeout(() => this.myfoo = Math.random().toString(), 1500)
-            }, 1500);
-            $timeout(() => this.myfoo = Math.random().toString(), 1500)
+            setInterval(function () {
+                $timeout(function () {
+                    this.myfoo = Math.random().toString(), 1500
+                }.bind(this));
+            }.bind(this), 1500);
+            $timeout(function () {
+                this.myfoo = Math.random().toString(), 1500
+            }.bind(this))
         });
     });
 
